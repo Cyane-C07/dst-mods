@@ -5,7 +5,7 @@ local assets = {
 }
 
 -- Your character's stats
-TUNING.WETZEL_HEALTH = 150
+TUNING.WETZEL_HEALTH = 175
 TUNING.WETZEL_HUNGER = 150
 TUNING.WETZEL_SANITY = 200
 
