@@ -13,6 +13,10 @@ TUNING.WETZEL_SANITY = 200
 TUNING.GAMEMODE_STARTING_ITEMS.DEFAULT.WETZEL = {
 	"flint",
 	"flint",
+	"flint",
+	"flint",
+	"twigs",
+	"twigs",
 	"twigs",
 	"twigs",
 }
@@ -72,11 +76,15 @@ local master_postinit = function(inst)
 	-- Damage multiplier (optional)
     inst.components.combat.damagemultiplier = 1
 
-	-- Hunger rate (optional)
+	-- Hunger multiplier (optional)
 	inst.components.hunger.hungerrate = 1 * TUNING.WILSON_HUNGER_RATE
 
+	-- Sanity multiplier (optional)
+	inst.components.sanity.sanitymultiplier = -1
+	inst.components.sanity.sanityrate = -1
+
 	inst.OnLoad = onload
-    inst.OnNewSpawn = onload
+  inst.OnNewSpawn = onload
 
 end
 
