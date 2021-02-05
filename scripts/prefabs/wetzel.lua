@@ -72,16 +72,13 @@ local master_postinit = function(inst)
 	inst.components.health:SetMaxHealth(TUNING.WETZEL_HEALTH)
 	inst.components.hunger:SetMax(TUNING.WETZEL_HUNGER)
 	inst.components.sanity:SetMax(TUNING.WETZEL_SANITY)
+	-- self:SetSanityMode(GLOBAL.SANITY_MODE_INSANITY)
 
 	-- Damage multiplier (optional)
     inst.components.combat.damagemultiplier = 1
 
 	-- Hunger multiplier (optional)
 	inst.components.hunger.hungerrate = 1 * TUNING.WILSON_HUNGER_RATE
-
-	-- Sanity multiplier (optional)
-	inst.components.sanity.sanitymultiplier = -1
-	inst.components.sanity.sanityrate = -1
 
 	inst.OnLoad = onload
   inst.OnNewSpawn = onload
