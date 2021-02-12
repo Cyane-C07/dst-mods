@@ -1542,7 +1542,7 @@ return {
 		LAVASPIT = 
 		{
 			HOT = "thats way too hot!",
-			COOL = "its all cool now".",
+			COOL = "its all cool now",
 		},
 		LAVA_POND = "hot hot hot!",
 		LAVAE = "hello little bug",
