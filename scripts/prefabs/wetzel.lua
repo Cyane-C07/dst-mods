@@ -11,14 +11,11 @@ TUNING.WETZEL_SANITY = 200
 
 -- Custom starting inventory
 TUNING.GAMEMODE_STARTING_ITEMS.DEFAULT.WETZEL = {
-	"flint",
-	"flint",
-	"flint",
-	"flint",
-	"twigs",
-	"twigs",
-	"twigs",
-	"twigs",
+	"nightmarefuel",
+	"nightmarefuel",
+	"nightmarefuel",
+	"nightmarefuel",
+	"nightmarefuel",
 }
 
 local start_inv = {}

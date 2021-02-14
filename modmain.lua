@@ -41,18 +41,18 @@ local require = GLOBAL.require
 local STRINGS = GLOBAL.STRINGS
 
 -- The character select screen lines
-STRINGS.CHARACTER_TITLES.wetzel = "The Sample Character"
-STRINGS.CHARACTER_NAMES.wetzel = "Esc"
-STRINGS.CHARACTER_DESCRIPTIONS.wetzel = "*Perk 1\n*Perk 2\n*Perk 3"
-STRINGS.CHARACTER_QUOTES.wetzel = "\"Quote\""
+STRINGS.CHARACTER_TITLES.wetzel = "The Little Nightmare"
+STRINGS.CHARACTER_NAMES.wetzel = "Wetzel"
+STRINGS.CHARACTER_DESCRIPTIONS.wetzel = "*Insane\n*Can walk around at night, but suffers in the day\n*Grows unruly nighthair"
+STRINGS.CHARACTER_QUOTES.wetzel = "\"i much prefer the dark\""
 STRINGS.CHARACTER_SURVIVABILITY.wetzel = "Slim"
 
 -- Custom speech strings
 STRINGS.CHARACTERS.WETZEL = require "speech_wetzel"
 
 -- The character's name as appears in-game
-STRINGS.NAMES.WETZEL = "Esc"
-STRINGS.SKIN_NAMES.wetzel_none = "Esc"
+STRINGS.NAMES.WETZEL = "Wetzel"
+STRINGS.SKIN_NAMES.wetzel_none = "Wetzel"
 
 -- The skins shown in the cycle view window on the character select screen.
 -- A good place to see what you can put in here is in skinutils.lua, in the function GetSkinModes
