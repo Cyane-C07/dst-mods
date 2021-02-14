@@ -40,6 +40,8 @@ AddMinimapAtlas("images/map_icons/wetzel.xml")
 local require = GLOBAL.require
 local STRINGS = GLOBAL.STRINGS
 
+--
+
 -- The character select screen lines
 STRINGS.CHARACTER_TITLES.wetzel = "The Little Nightmare"
 STRINGS.CHARACTER_NAMES.wetzel = "Wetzel"
