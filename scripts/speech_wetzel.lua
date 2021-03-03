@@ -7,10 +7,14 @@
 	Example:
 	"Like \"this\"."
 ]]
-return {
+return{
 	ACTIONFAIL =
 	{
-        REPAIR =
+        APPRAISE = 
+        {
+            NOTNOW = "hey! look at this please",
+		},
+		REPAIR =
         {
             WRONGPIECE = "not the right piece",
         },
@@ -24,7 +28,8 @@ return {
 			AWAKEBEEFALO = "theyre scary when theyre awake, maybe when theyre asleep",
 			GENERIC = "no thankyou, not shaving",
 			NOBITS = "no hair there!",
-            REFUSE = "only_used_by_woodie",
+--fallback to speech_wilson.lua             REFUSE = "only_used_by_woodie",
+            SOMEONEELSESBEEFALO = "i think ill let someone else do it",
 		},
 		STORE =
 		{
@@ -66,9 +71,9 @@ return {
             INUSE = "o sorry, ill wait my turn",
             TOOFAR = "cant... quite... reach",
         },
-                START_CARRAT_RACE =
+        START_CARRAT_RACE =
         {
-            NO_RACERS = "A race isn't any fun without someone to beat.",
+            NO_RACERS = "o theres no one to race",
         },
         --warly specific action
 		DISMANTLE =
@@ -86,11 +91,11 @@ return {
 			WRONGGEAR = "i think i need a different rod",
 		},
         --wickerbottom specific action
-        READ =
-        {
-            GENERIC = "only_used_by_wickerbottom",
-            NOBIRDS = "only_used_by_wickerbottom"
-        },
+--fallback to speech_wilson.lua         READ =
+--fallback to speech_wilson.lua         {
+--fallback to speech_wilson.lua             GENERIC = "only_used_by_wickerbottom",
+--fallback to speech_wilson.lua             NOBIRDS = "only_used_by_wickerbottom"
+--fallback to speech_wilson.lua         },
 
         GIVE =
         {
@@ -289,6 +294,7 @@ return {
         {
             ALREADYKNOWN = "o i know this already",
         }
+		
 	},
 	ACTIONFAIL_GENERIC = "no thankyou",
 	ANNOUNCE_BOAT_LEAK = "i think the water is meant to be outside the boat.",
@@ -585,14 +591,15 @@ return {
     ANNOUNCE_CANTBUILDHERE_WATCHTOWER = "only_used_by_wurt",
     ANNOUNCE_READ_BOOK = 
     {
-        BOOK_SLEEP = "only_used_by_wurt",
-        BOOK_BIRDS = "only_used_by_wurt",
-        BOOK_TENTACLES =  "only_used_by_wurt",
-        BOOK_BRIMSTONE = "only_used_by_wurt",
-        BOOK_GARDENING = "only_used_by_wurt",
+--fallback to speech_wilson.lua         BOOK_SLEEP = "only_used_by_wurt",
+--fallback to speech_wilson.lua         BOOK_BIRDS = "only_used_by_wurt",
+--fallback to speech_wilson.lua         BOOK_TENTACLES =  "only_used_by_wurt",
+--fallback to speech_wilson.lua         BOOK_BRIMSTONE = "only_used_by_wurt",
+--fallback to speech_wilson.lua         BOOK_GARDENING = "only_used_by_wurt",
+--fallback to speech_wilson.lua 		BOOK_SILVICULTURE = "only_used_by_wurt",
+--fallback to speech_wilson.lua 		BOOK_HORTICULTURE = "only_used_by_wurt",
     },
-
- ANNOUNCE_WEAK_RAT = "i think that mortal is about to leave its body...",
+	ANNOUNCE_WEAK_RAT = "i think that mortal is about to leave its body...",
 
     ANNOUNCE_CARRAT_START_RACE = "three, two... one......... go!",
 
@@ -707,7 +714,7 @@ return {
 			LEVEL2 = "excuse me abigail?",
 			LEVEL3 = "would you like to come out now?",
 			
-				-- deprecated
+			-- deprecated
             LONG = "its very strange",
             MEDIUM = "makes me shiver",
             SOON = "that flowers looking freaky",
@@ -1173,7 +1180,6 @@ return {
         SPIDERHOLE_ROCK = "i dont like the look of that",
         STALAGMITE = "just rocks",
         STALAGMITE_TALL = "more rocks...",
-        TREASURECHEST_TRAP = "how convenient!",
 
         TURF_CARPETFLOOR = "fuzzy",
         TURF_CHECKERFLOOR = "this would look good under a crockpot",
@@ -1324,6 +1330,7 @@ return {
             ORNERY = "a little scary",
             RIDER = "i think i can get up on this one",
             PUDGY = "i think... its had a little too much...",
+			MYPARTNER = "my beefalo",
 		},
 
 		BEEFALOHAT = "o they think im one of them",
@@ -1494,7 +1501,7 @@ return {
         CHESSPIECE_MALBATROSS = "its much less scary like that",
         CHESSPIECE_CRABKING = "he had quite an attitude...",
         CHESSPIECE_TOADSTOOL = "it has returned to the stone it came from",
-        CHESSPIECE_STALKER = "i am sorry friend",
+        CHESSPIECE_STALKER = "i am sorry .",
         CHESSPIECE_KLAUS = "he looks better with those chains on",
         CHESSPIECE_BEEQUEEN = "shes much better like this...",
         CHESSPIECE_ANTLION = "he looks just as scary like that",
@@ -1876,7 +1883,7 @@ return {
 		KRAMPUS_SACK = "whats in here?",
 		LEIF = "thats one tall treeman!",
 		LEIF_SPARSE = "thats one tall treeman!",
-		LIGHTER  = "i think it belong to willow",
+		LIGHTER  = "i think it belongs to willow",
 		LIGHTNING_ROD =
 		{
 			CHARGED = "is the lightning trapped in there?",
@@ -2382,7 +2389,7 @@ return {
 		TRINKET_22 = "i prefer to tie up loose ends", --Frayed Yarn
 		TRINKET_23 = "i dont have shoes in the first place", --Shoehorn
 		TRINKET_24 = "how sweet", --Lucky Cat Jar
-		TRINKET_25 = "doesnt smell... great..." --Air Unfreshener
+		TRINKET_25 = "doesnt smell... great...", --Air Unfreshener
 		TRINKET_26 = "looks surprisingly tasty", --Potato Cup
 		TRINKET_27 = "not much use to me", --Coat Hanger
 		TRINKET_28 = "much less scary like this", --Rook
@@ -2739,7 +2746,7 @@ return {
         {
 			LINE_1 = "it shows a city full of starving people, before the fuel...",
 			LINE_2 = "you know what happens next...",
-			LINE_3 = "we consumed them... too much power",
+			LINE_3 = "the night consumed them... too much power",
 			LINE_4 = "people shedding their skins... its no good",
 			LINE_5 = "how sad...",
 		},
@@ -3179,8 +3186,8 @@ return {
 		},
         MOON_ALTAR =
         {
-            MOON_ALTAR_WIP = "It wants to be finished.",
-            GENERIC = "Hm? What did you say?",
+            MOON_ALTAR_WIP = "it wants to be finished",
+            GENERIC = "it says things",
         },
 
         MOON_ALTAR_IDOL = "an idol",
@@ -3195,8 +3202,8 @@ return {
         MOON_ALTAR_COSMIC = "is is placed",
 
         MOON_ALTAR_ASTRAL = "all the pieces in place",
-        MOON_ALTAR_ICON = "an icon,",
-        MOON_ALTAR_WARD = "a ward,",        
+        MOON_ALTAR_ICON = "an icon",
+        MOON_ALTAR_WARD = "a ward",        
 
         SEAFARING_PROTOTYPER =
         {
@@ -3341,7 +3348,7 @@ return {
 			BURNING = "o no...",
 			BURNT = "o poor fishy",
 			OWNER = "weight: {weight}\ncaught by: {owner}\ni did that!",
-			OWNER_HEAVY = "Weight: {weight}\nCaught by: {owner}\nthats my fishy",
+			OWNER_HEAVY = "weight: {weight}\ncaught by: {owner}\nthats my fishy",
 		},
 
 		OCEANFISHABLEFLOTSAM = "kinda gross",
@@ -3404,6 +3411,9 @@ return {
         RESKIN_TOOL = "o i can change how things look",
         MOON_FISSURE_PLUGGED = "thats a smart idea",
 		
+		
+		----------------------- ROT STRINGS GO ABOVE HERE ------------------
+		
 		-- Walter
         WOBYBIG = 
         {
@@ -3449,8 +3459,6 @@ return {
 			SOME_FLOWERS = "very pretty",
 			LOTS_OF_FLOWERS = "wow it looks beautiful!",
 		},
-
-		----------------------- ROT STRINGS GO ABOVE HERE ------------------
 
         --Wortox
         WORTOX_SOUL = "only_used_by_wortox", --only wortox can inspect souls
@@ -3518,7 +3526,7 @@ return {
 
         ASPARAGUS = "one asparagus", 
         ASPARAGUS_COOKED = "i think its meant to be good for you",
-        ASPARAGUS_SEEDS = "o its asparagus seeds.",
+        ASPARAGUS_SEEDS = "o its asparagus seeds",
 
         PEPPER = "one hot pepper",
         PEPPER_COOKED = "o its even hotter now!",
@@ -3593,7 +3601,7 @@ return {
         HERMIT_CRACKED_PEARL = "o no...",
 
         -- DSEAS
-        WATERPLANT = " that flower looks pretty scary",
+        WATERPLANT = "that flower looks pretty scary",
         WATERPLANT_BOMB = "yikes!",
         WATERPLANT_BABY = "its small now...",
         WATERPLANT_PLANTER = "i dont know if i want more of them",
@@ -3609,7 +3617,7 @@ return {
         BARNACLE_COOKED = "tastier now its cooked",
 
         BARNACLEPITA = "looks... interesting",
-        BARNACLESUSHI = "i can see the barnacle in there,"
+        BARNACLESUSHI = "i can see the barnacle in there",
         BARNACLINGUINE = "tasty",
         BARNACLESTUFFEDFISHHEAD = "is it edible",
 
@@ -3725,20 +3733,20 @@ return {
 		{ 
 			GENERIC = "hmmm... not good",
 			STALE = "really gross",
-			SPOILED = "it smells bad... i hope it works"
+			SPOILED = "it smells bad... i hope it works",
 		},
 
-		SOIL_AMENDER_FERMENTED = "do wormwood like this too?"
+		SOIL_AMENDER_FERMENTED = "does wormwood like this too?",
 
         WATERINGCAN = 
         {
             GENERIC = "to water those little plants",
-            EMPTY = "o no its empty,"
+            EMPTY = "o no its empty",
         },
         PREMIUMWATERINGCAN =
         {
             GENERIC = "a fancy way to water plants",
-            EMPTY = "o no its empty,",
+            EMPTY = "o no its empty",
         },
 
 		FARM_PLOW = "i can make the ground reeady for plants",
