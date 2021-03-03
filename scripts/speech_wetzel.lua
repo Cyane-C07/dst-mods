@@ -10,7 +10,7 @@
 return{
 	ACTIONFAIL =
 	{
-        APPRAISE = 
+        APPRAISE =
         {
             NOTNOW = "hey! look at this please",
 		},
@@ -294,7 +294,7 @@ return{
         {
             ALREADYKNOWN = "o i know this already",
         }
-		
+
 	},
 	ACTIONFAIL_GENERIC = "no thankyou",
 	ANNOUNCE_BOAT_LEAK = "i think the water is meant to be outside the boat.",
@@ -713,13 +713,8 @@ return{
 			LEVEL1 = "can she hear me in there?",
 			LEVEL2 = "excuse me abigail?",
 			LEVEL3 = "would you like to come out now?",
-<<<<<<< HEAD
-			
-			-- deprecated
-=======
 
 				-- deprecated
->>>>>>> fa7c52eb5f359f364f30d3b0f6cff65b88d9ccbe
             LONG = "its very strange",
             MEDIUM = "makes me shiver",
             SOON = "that flowers looking freaky",
@@ -3207,13 +3202,8 @@ return{
         MOON_ALTAR_COSMIC = "is is placed",
 
         MOON_ALTAR_ASTRAL = "all the pieces in place",
-<<<<<<< HEAD
         MOON_ALTAR_ICON = "an icon",
-        MOON_ALTAR_WARD = "a ward",        
-=======
-        MOON_ALTAR_ICON = "an icon,",
-        MOON_ALTAR_WARD = "a ward,",
->>>>>>> fa7c52eb5f359f364f30d3b0f6cff65b88d9ccbe
+        MOON_ALTAR_WARD = "a ward",
 
         SEAFARING_PROTOTYPER =
         {
@@ -3420,14 +3410,6 @@ return{
 
         RESKIN_TOOL = "o i can change how things look",
         MOON_FISSURE_PLUGGED = "thats a smart idea",
-<<<<<<< HEAD
-		
-		
-		----------------------- ROT STRINGS GO ABOVE HERE ------------------
-		
-=======
-
->>>>>>> fa7c52eb5f359f364f30d3b0f6cff65b88d9ccbe
 		-- Walter
         WOBYBIG =
         {
