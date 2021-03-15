@@ -12,7 +12,7 @@ return{
 	{
         APPRAISE =
         {
-            NOTNOW = "hey! look at this please",
+            NOTNOW = "hey! look at this pleaseeeee",
 		},
 		REPAIR =
         {
