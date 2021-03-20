@@ -37,6 +37,9 @@ Assets = {
 
 AddMinimapAtlas("images/map_icons/wetzel.xml")
 
+icon_atlas = "modicon.xml"
+icon = "modicon.tex"
+
 local require = GLOBAL.require
 local STRINGS = GLOBAL.STRINGS
 
@@ -65,6 +68,7 @@ local skin_modes = {
         offset = { 0, -25 }
     },
 }
+
 
 -- Add mod character to mod character list. Also specify a gender. Possible genders are MALE, FEMALE, ROBOT, NEUTRAL, and PLURAL.
 AddModCharacter("wetzel", "NEUTRAL", skin_modes)
