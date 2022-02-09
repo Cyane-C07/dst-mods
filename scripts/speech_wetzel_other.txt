@@ -1,0 +1,158 @@
+wetzel large  Remnants
+wetzel makes them cold
+sunglasses - these dont belong to me / neat! sunglasses/ cool shades/ ect
+sunglasses on = ANNOUNCE_ENTER_DARK
+bell empty/ not ready
+bell full
+prisma
+arch gestalts - those guys seem to hate wetzel
+
+
+Remnants =
+
+    Wilson = "Remind me not to get on Wetzel's bad side."
+    Willow = "Wetzel's bigger than Bernie!"
+    Wolfgang = "Oh no! Wolfgang has shrunken!"
+    Wendy = "As cold as death."
+    WX78 = "THEY HAVE REACHED MAXIMUM SHADOW"
+    Wickerbottom = "They have grown exponentially."
+    Woodie = "Pretty freaky... if you ask me."
+    Waxwell = "How unnervingly familiar."
+    Wathgrithr = "Wetzel has been enchanted with a fighting spirit!"
+    Webber = "We didn't know they could get so large."
+    Warly = "Tres géant!"
+    Wormwood = "Friend got big!"
+    Winona = "Well aint that somethin'."
+    Wortox = "That soul's much bigger than I thought it was."
+    Wurt = "Where did shadow friend go?"
+    Walter = "Wetzel? Is that you?"
+    Wetzel = "o so thats what i look like"
+
+Wetzel Cold =
+
+    ANNOUNCE_COLD
+
+Sunglasses On = 
+
+    ANNOUNCE_ENTER_DARK
+
+Sunglasses =
+
+    Wilson = "Maybe I can borrow these... just for a bit."
+    Willow = "Wetzel must have dropped these."
+    Wolfgang = "These don't belong to Wolfgang."
+    Wendy = "They make everything look dark."
+    WX78 = "COOL SHADES"
+    Wickerbottom = "An interesting use of purple gems."
+    Woodie = "Not my style."
+    Waxwell = "I think Wetzel dropped these."
+    Wathgrithr = "These do not belong to me."
+    Webber = "We think Wetzel lost them."
+    Warly = "Wetzel must have dropped these."
+    Wormwood = "Belong to friend."
+    Winona = "Maybe I could use a pair."
+    Wortox = "Neat! Sunglasses!"
+    Wurt = "Not mine, florp!"
+    Walter = "These don't belong to me."
+    Wetzel = "for my little eyes"
+
+Gloombell Ready =
+
+    Wilson = "It's filled up and ready to go!"
+    Willow = "Maybe I could ring it?"
+    Wolfgang = "Bell is mighty!"
+    Wendy = "I can feel the gloom coming from it."
+    WX78 = "IT IS COMPLETE"
+    Wickerbottom = "It appears to be waiting for someone."
+    Woodie = "Another freaky thing..."
+    Waxwell = "It's ready."
+    Wathgrithr = "The bell is poised for battle!"
+    Webber = "We think it's all filled up!"
+    Warly = "It's ready."
+    Wormwood = "Bell for Friend."
+    Winona = "This thing's powered up."
+    Wortox = "It's filled up with something! Hyuyu!"
+    Wurt = "Ready!"
+    Walter = "Ready and waiting!"
+    Wetzel = "all filled up!"
+
+Gloombell Not Ready =
+
+    Wilson = "Needs more prisma."
+    Willow = "But I want to ring it already..."
+    Wolfgang = "Not so mighty yet."
+    Wendy = "Empty... I know that feeling."
+    WX78 = "REQUIRES POWER"
+    Wickerbottom = "Curious, it needs prisma to function."
+    Woodie = "I don't think it's ready yet, Luce."
+    Waxwell = "How strange... it needs prisma to work."
+    Wathgrithr = "The bell requires power!"
+    Webber = "It's not quite ready."
+    Warly = "Needs a little something extra."
+    Wormwood = "Friend Bell not ready."
+    Winona = "I think it needs some power."
+    Wortox = "I wonder if it has a soul..."
+    Wurt = "Bell needs more stuff."
+    Walter = "The bell needs some more prisma!"
+    Wetzel = "hmm... needs more prisma"
+
+Prisma =
+
+    Wilson = "This science is sharp!"
+    Willow = "If the light hits it right I can burn stuff."
+    Wolfgang = "So shiny, Wolfgang likes it."
+    Wendy = "So sharp but so pretty."
+    WX78 = "CONDENSED KNOWLEDGE"
+    Wickerbottom = "A strange prismatic substance."
+    Woodie = "Freaky..."
+    Waxwell = "It seems apposed to nightmare fuel."
+    Wathgrithr = "This is a strange metal!"
+    Webber = "We thinks its sharp"
+    Warly = "How strange."
+    Wormwood = "Moon stuff."
+    Winona = "Hey that's sharp."
+    Wortox = "See-through stuff."
+    Wurt = "It's like glass, florp."
+    Walter = "It seems very sharp."
+    Wetzel = "not sure it likes me"
+
+Arch Gestalt =
+
+    Wilson = "They don't seem to like wetzel."
+    Willow = "It's talking inside my head!"
+    Wolfgang = "They are after little shadow friend!"
+    Wendy = "I don't think they like wetzel."
+    WX78 = "UPDATED TO VERSION 3.0"
+    Wickerbottom = "They are persuing our umbra-based companion."
+    Woodie = "Looks like these things are getting even stronger!"
+    Waxwell = "I think I should keep my distance."
+    Wathgrithr = "A mighty warrior approaches!"
+    Webber = "They don't seem very friendly."
+    Warly = "I think we should stay away."
+    Wormwood = "Chasing Friend!"
+    Winona = "I don't much like the looks of that."
+    Wortox = "Oh how much you've grown! Hyuyu!"
+    Wurt = "Looking stronger florp!"
+    Walter = "They don't seem to like wetzel!"
+    Wetzel = "o no!"
+
+
+ =
+
+    Wilson = ""
+    Willow = ""
+    Wolfgang = ""
+    Wendy = ""
+    WX78 = ""
+    Wickerbottom = ""
+    Woodie = ""
+    Waxwell = ""
+    Wathgrithr = ""
+    Webber = ""
+    Warly = ""
+    Wormwood = ""
+    Winona = ""
+    Wortox = ""
+    Wurt = ""
+    Walter = ""
+    Wetzel = ""

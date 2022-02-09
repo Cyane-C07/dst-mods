@@ -724,6 +724,14 @@ return{
 
         BALLOONS_EMPTY = "im not really a fan of balloons...",
         BALLOON = "clowns scare me",
+		BALLOONPARTY = "i dont like balloons much",
+		BALLOONSPEED =
+        {
+            DEFLATED = "o dear",
+            GENERIC = "for speed",
+        },
+		BALLOONVEST = "this is pretty loud",
+		BALLOONHAT = "i dont know if i like this",
 
         BERNIE_INACTIVE =
         {
@@ -3870,6 +3878,53 @@ return{
         BEAST_BLUEPRINT = "lady luck will be on your side little beefalo",
 
         BEEF_BELL = "i love a good bell",
+		
+		 -- Moon Storm
+        ALTERGUARDIAN_PHASE1 = {
+            GENERIC = "shouldn't have messed with this",
+            DEAD = "safe... for now",
+        },
+        ALTERGUARDIAN_PHASE2 = {
+            GENERIC = "its angry...",
+            DEAD = "please go away",
+        },
+        ALTERGUARDIAN_PHASE2SPIKE = "o no!!",
+        ALTERGUARDIAN_PHASE3 = "o no o no o no!",
+        ALTERGUARDIAN_PHASE3TRAP = "i dont trust it",
+        ALTERGUARDIAN_PHASE3DEADORB = "im not sure its dead",
+        ALTERGUARDIAN_PHASE3DEAD = "it is over",
+
+        ALTERGUARDIANHAT = "no no dont like it",
+        ALTERGUARDIANHATSHARD = "it still has a lot of power",
+
+        MOONSTORM_GLASS = {
+            GENERIC = "Elysium stuff",
+            INFUSED = "it is charged up"
+        },
+
+        MOONSTORM_STATIC = "feels very fuzzy",
+        MOONSTORM_STATIC_ITEM = "it crackles away",
+        MOONSTORM_SPARK = "makes me feel weird",
+
+        BIRD_MUTANT = "not much like a crow anymore",
+        BIRD_MUTANT_SPITTER = "Elysium has changed this one",
+
+        WAGSTAFF_NPC = "o hello sir",
+        ALTERGUARDIAN_CONTAINED = "very weird...",
+
+        WAGSTAFF_TOOL_1 = "hmm i hope this helps",
+        WAGSTAFF_TOOL_2 = "science isnt my strong point",
+        WAGSTAFF_TOOL_3 = "i think that scientist needs this",
+        WAGSTAFF_TOOL_4 = "is this what we need?",
+        WAGSTAFF_TOOL_5 = "did someone drop this?",
+
+        MOONSTORM_GOGGLESHAT = "i like my sunglasses better",
+
+        MOON_DEVICE = {
+            GENERIC = "not sure what it does...",
+            CONSTRUCTION1 = "this is... hard work...",
+            CONSTRUCTION2 = "almost there",
+        }
     },
 
     DESCRIBE_GENERIC = "im... not sure what that is",
