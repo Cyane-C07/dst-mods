@@ -408,7 +408,7 @@ return{
     ANNOUNCE_NODANGERGIFT = "too scary to open that!",
     ANNOUNCE_NOMOUNTEDGIFT = "too high up... i should get down",
 	ANNOUNCE_NODANGERSLEEP = "too scary!! cant sleep now!",
-	ANNOUNCE_NODAYSLEEP = "sun go away!",
+	ANNOUNCE_NODAYSLEEP = "sun go away!",############
 	ANNOUNCE_NODAYSLEEP_CAVE = "o no i cant sleep here",
 	ANNOUNCE_NOHUNGERSLEEP = "little shadow needs to eat before sleeping!",
 	ANNOUNCE_NOSLEEPONFIRE = "fire doesnt make a good matress! ",
