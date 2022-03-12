@@ -78,14 +78,14 @@ GLOBAL.TALKINGFONT_WETZEL = "talkingfont_wetzel"
 
 AddSimPostInit(function()
     TheSim:UnloadFont(GLOBAL.TALKINGFONT_WETZEL)
-    TheSim:UnloadPrefabs({"talkingfont_wetzel"})
+    TheSim:UnloadPrefabs({"wetzel_fonts"})
 
     local Assets = {
 		Asset("FONT", GLOBAL.resolvefilepath("fonts/talkingfont_wetzel.zip")),
 	}
 
-    local FontsPrefab = GLOBAL.Prefab("talkingfont_wetzel", function() return GLOBAL.CreateEntity() end, Assets)
+    local FontsPrefab = GLOBAL.Prefab("wetzel_fonts", function() return GLOBAL.CreateEntity() end, Assets)
 	GLOBAL.RegisterPrefabs(FontsPrefab)
-	TheSim:LoadPrefabs({"talkingfont_wetzel"})
+	TheSim:LoadPrefabs({"wetzel_fonts"})
 	TheSim:LoadFont(GLOBAL.resolvefilepath("fonts/talkingfont_wetzel.zip"), GLOBAL.TALKINGFONT_WETZEL)
 end)
