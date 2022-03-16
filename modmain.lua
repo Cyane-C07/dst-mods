@@ -42,7 +42,6 @@ icon = "modicon.tex"
 
 local require = GLOBAL.require
 local STRINGS = GLOBAL.STRINGS
-local TheSim = GLOBAL.TheSim
 
 --  The character select screen lines
 STRINGS.CHARACTER_TITLES.wetzel = "The Little Nightmare"
@@ -73,19 +72,3 @@ local skin_modes = {
 
 -- Add mod character to mod character list. Also specify a gender. Possible genders are MALE, FEMALE, ROBOT, NEUTRAL, and PLURAL.
 AddModCharacter("wetzel", "NEUTRAL", skin_modes)
-
-GLOBAL.TALKINGFONT_WETZEL = "talkingfont_wetzel"
-
-AddSimPostInit(function()
-    TheSim:UnloadFont(GLOBAL.TALKINGFONT_WETZEL)
-    TheSim:UnloadPrefabs({"wetzel_fonts"})
-
-    local Assets = {
-		Asset("FONT", GLOBAL.resolvefilepath("fonts/talkingfont_wetzel.zip")),
-	}
-
-    local FontsPrefab = GLOBAL.Prefab("wetzel_fonts", function() return GLOBAL.CreateEntity() end, Assets)
-	GLOBAL.RegisterPrefabs(FontsPrefab)
-	TheSim:LoadPrefabs({"wetzel_fonts"})
-	TheSim:LoadFont(GLOBAL.resolvefilepath("fonts/talkingfont_wetzel.zip"), GLOBAL.TALKINGFONT_WETZEL)
-end)
