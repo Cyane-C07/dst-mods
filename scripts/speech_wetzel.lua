@@ -378,8 +378,8 @@ return {
 
 	ANNOUNCE_BEES = "bees!!!!!!!!!!!",
 	ANNOUNCE_BOOMERANG = "o no",
-	ANNOUNCE_CHARLIE = "-",
-	ANNOUNCE_CHARLIE_ATTACK = "-",
+	ANNOUNCE_CHARLIE = "o no its her!",
+	ANNOUNCE_CHARLIE_ATTACK = "nooo!",
 	ANNOUNCE_CHARLIE_MISSED = "only_used_by_winona", --winona specific
 	ANNOUNCE_COLD = "too... cold",
 	ANNOUNCE_HOT = "the light... hurts",
