@@ -38,15 +38,6 @@ Assets = {
     Asset("SOUND","sound/wetzel.fsb"),
 }
 
-RemapSoundEvent( "dontstarve/characters/wetzel", "wetzel/wetzel" )
-RemapSoundEvent( "dontstarve/characters/wetzel/talk_LP", "wetzel/wetzel/talk_LP" )
-RemapSoundEvent( "dontstarve/characters/wetzel/ghost_LP", "wetzel/wetzel/ghost_LP" )
-RemapSoundEvent( "dontstarve/characters/wetzel/hurt", "wetzel/wetzel/hurt" )
-RemapSoundEvent( "dontstarve/characters/wetzel/death_voice", "wetzel/wetzel/death_voice" )
-RemapSoundEvent( "dontstarve/characters/wetzel/emote", "wetzel/wetzel/emote" )
-RemapSoundEvent( "dontstarve/characters/wetzel/pose", "wetzel/wetzel/pose" )
-RemapSoundEvent( "dontstarve/characters/wetzel/yawn", "wetzel/wetzel/yawn" )
-
 AddMinimapAtlas("images/map_icons/wetzel.xml")
 
 icon_atlas = "modicon.xml"

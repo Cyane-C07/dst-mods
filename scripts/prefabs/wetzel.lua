@@ -61,6 +61,7 @@ local master_postinit = function(inst)
 
 	-- choose which sounds this character will play
 	inst.soundsname = "wetzel"
+	inst.talker_path_override = "wetzel/"
 
 	-- Uncomment if "wathgrithr"(Wigfrid) or "webber" voice is used
     --inst.talker_path_override = "dontstarve_DLC001/characters/"
