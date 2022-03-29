@@ -47,6 +47,8 @@ icon = "modicon.tex"
 
 local require = GLOBAL.require
 local STRINGS = GLOBAL.STRINGS
+GLOBAL.CHEATS_ENABLED = true
+GLOBAL.require( 'debugkeys' )
 
 --  The character select screen lines
 STRINGS.CHARACTER_TITLES.wetzel = "The Little Nightmare"
