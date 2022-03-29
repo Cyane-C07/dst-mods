@@ -1,4 +1,5 @@
-local env = env
+local _G = GLOBAL
+local TheSim = _G.TheSim
 PrefabFiles = {
 	"wetzel",
 	"wetzel_none",
@@ -77,20 +78,17 @@ local skin_modes = {
 -- Add mod character to mod character list. Also specify a gender. Possible genders are MALE, FEMALE, ROBOT, NEUTRAL, and PLURAL.
 AddModCharacter("wetzel", "NEUTRAL", skin_modes)
 
+_G.TALKINGFONT_WETZEL = "talkingfont_wetzel"
 
-TALKINGFONT_WETZEL = "talkingfont_wetzel"
-
-env.AddSimPostInit(function()
-	TheSim:UnloadFont(TALKINGFONT_WETZEL)
+AddSimPostInit(function()
+	TheSim:UnloadFont(_G.TALKINGFONT_WETZEL)
 	TheSim:UnloadPrefabs({"wetzel_fonts"})
 
-	local font = resolvefilepath("fonts/talkingfont_wetzel.zip")
-	local assets = {
-		Asset("FONT", font),
+	local Assets = {
+		Asset("FONT", _G.resolvefilepath("fonts/talkingfont_wetzel.zip")),
 	}
-
-	local FontsPrefab = Prefab("wetzel_fonts", function() return CreateEntity() end, assets)
-	RegisterPrefabs(FontsPrefab)
+	local FontsPrefab = _G.Prefab("wetzel_fonts", function() return _G.CreateEntity() end, Assets)
+	_G.RegisterPrefabs(FontsPrefab)
 	TheSim:LoadPrefabs({"wetzel_fonts"})
-	TheSim:LoadFont(font, TALKINGFONT_WETZEL)
+	TheSim:LoadFont(_G.resolvefilepath("fonts/talkingfont_wetzel.zip"), _G.TALKINGFONT_WETZEL)
 end)
