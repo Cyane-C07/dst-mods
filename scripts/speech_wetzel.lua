@@ -75,6 +75,11 @@ return {
 			KITCOON_HIDEANDSEEK_NOT_ENOUGH_HIDING_SPOTS = "not enough hiding places!",
 			KITCOON_HIDEANDSEEK_ONE_GAME_PER_DAY = "o thats enough for today",
 		},
+		OPEN_CRAFTING = 
+		{
+            PROFESSIONALCHEF = "i cant cook that good",
+			SHADOWMAGIC = "hm...",	
+        },
         COOK =
         {
             GENERIC = "that pots too hot. like the sun. i dont like the sun",
@@ -360,6 +365,13 @@ return {
 	ANNOUNCE_PICK_DISEASE_WARNING = "that doesnt smell very nice",
 	ANNOUNCE_ADVENTUREFAIL = "o well maybe next time",
     ANNOUNCE_MOUNT_LOWHEALTH = "this mortal may be nearing its end",
+	ACTIONFAIL_GENERIC = "i cant do that",
+        ANNOUNCE_BOAT_LEAK = "i dont think boats are meant to have holes",
+        ANNOUNCE_BOAT_SINK = "sweet neptune!",
+        ANNOUNCE_DIG_DISEASE_WARNING = "better without it", --removed
+        ANNOUNCE_PICK_DISEASE_WARNING = "i think its sick", --removed
+        ANNOUNCE_ADVENTUREFAIL = "that... didnt go so well",
+        ANNOUNCE_MOUNT_LOWHEALTH = "poor horsey isnt feeling so good",
 
     --waxwell and wickerbottom specific strings
     ANNOUNCE_TOOMANYBIRDS = "only_used_by_waxwell_and_wicker",
@@ -2790,6 +2802,8 @@ ANNOUNCE_WANDA_OLDTONORMAL = "only_used_by_wanda",
 			BURNT = "returned to ash",
 		},
 		WARG = "how did that hound get so huge?!",
+        WARGLET = "littler dog",
+
 		WASPHIVE = "those bees look pretty angry",
 		WATERBALLOON = "to cool things off",
 		WATERMELON = "juicy!",
@@ -4301,6 +4315,7 @@ ANNOUNCE_WANDA_OLDTONORMAL = "only_used_by_wanda",
 
         DUMBBELL = "i dont even have muscles",
         DUMBBELL_GOLDEN = "i think you could crash the economy with that",
+        DUMBBELL_MARBLE = "this gets you looking like a greek adonis",
         DUMBBELL_GEM = "this... this is not what the gems are for- o never mind",
         POTATOSACK = "potatoes are for eating...",
 
