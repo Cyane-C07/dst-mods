@@ -1,32 +1,66 @@
--- This information tells other players more about the mod
-name = "Wetzel"
-description = "Objectively the best character in Don't Starve Together."
-author = "petrifyyoursoul & Cyane"
-version = "1.2.6" -- This is the version of the template. Change it to your own number.
+name = " Wayne"
 
--- This is the URL name of the mod's thread on the forum; the part after the ? and before the first & in the url
-forumthread = "/files/file/950-extended-sample-character/"
+version = "1.0.2"
+version_compatible = "1.0.2"
 
--- This lets other players know if your mod is out of date, update it to match the current version in the game
+description = "Version: "..version
+author = "POWD3d4, CunningFox"
+
+forumthread = ""
 api_version = 10
 
--- Compatible with Don't Starve Together
 dst_compatible = true
-
--- Not compatible with Don't Starve
-dont_starve_compatible = false
-reign_of_giants_compatible = false
-shipwrecked_compatible = false
-
--- Character mods are required by all clients
 all_clients_require_mod = true
 
-icon_atlas = "modicon.xml"
+priority = -1000.025802
+
+icon_atlas = "images/modicon.xml"
 icon = "modicon.tex"
 
--- The mod's tags displayed on the server list
+local workshop_mod = folder_name and folder_name:find("workshop-") ~= nil
+
+if not workshop_mod then
+	description = description.."\nDeveloper version"
+end
+
 server_filter_tags = {
-"character",
+	"wayne",
 }
 
---configuration_options = {}
+local opt_EnabledDisabled = 
+{
+	{description = "Enabled", data = true},
+	{description = "Disabled", data = false},
+}
+local opt_Empty = {{description = "", data = 0}}
+local function Title(title, hover)
+	return {
+		name=title,
+		--label=title,
+		hover=hover,
+		options=opt_Empty,
+		default=0,
+	}
+end
+local SEPARATOR = Title("")
+
+configuration_options =
+{
+	Title("General", ""),
+
+	{
+		name = "wayne_font_shake",
+		label = "Enable Wayne's shaking font?",
+		options = opt_EnabledDisabled, 
+		default = true,
+	},
+	
+	Title("Mods in Menu", ""),
+
+	{
+		name = "wayne_main_menu",
+		label = "Enable custom main menu banner?",
+		options = opt_EnabledDisabled, 
+		default = true,
+	},
+}

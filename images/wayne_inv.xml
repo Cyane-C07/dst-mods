@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Atlas>
+	<Texture filename="wayne_inv.tex" />
+	<Elements>
+		<Element name="wayne_bottle.tex" u1="0.001" u2="0.249" v2="0.999" v1="0.751" variant="" />
+		<Element name="wayne_bottle_0.tex" u1="0.001" u2="0.249" v2="0.999" v1="0.751" variant="" />
+		<Element name="wayne_bottle_1.tex" u1="0.251" u2="0.499" v2="0.999" v1="0.751" variant="" />
+		<Element name="wayne_bottle_2.tex" u1="0.001" u2="0.249" v2="0.749" v1="0.501" variant="" />
+		<Element name="wayne_bottle_3.tex" u1="0.251" u2="0.499" v2="0.749" v1="0.501" variant="" />
+		<Element name="wayne_feather_black.tex" u1="0.501" u2="0.749" v2="0.999" v1="0.751" variant="" />
+		<Element name="wayne_feather_black_royal.tex" u1="0.751" u2="0.999" v2="0.999" v1="0.751" variant="" />
+		<Element name="wayne_feather_red.tex" u1="0.501" u2="0.749" v2="0.749" v1="0.501" variant="" />
+		<Element name="wayne_feather_red_royal.tex" u1="0.751" u2="0.999" v2="0.749" v1="0.501" variant="" />
+		<Element name="wayne_feather_white.tex" u1="0.001" u2="0.249" v2="0.499" v1="0.251" variant="" />
+		<Element name="wayne_feather_white_royal.tex" u1="0.251" u2="0.499" v2="0.499" v1="0.251" variant="" />
+		<Element name="wayne_feather_yellow.tex" u1="0.501" u2="0.749" v2="0.499" v1="0.251" variant="" />
+		<Element name="wayne_feather_yellow_royal.tex" u1="0.751" u2="0.999" v2="0.499" v1="0.251" variant="" />
+		<Element name="wayne_ink.tex" u1="0.001" u2="0.249" v2="0.249" v1="0.001" variant="" />
+		<Element name="wayne_paper.tex" u1="0.251" u2="0.499" v2="0.249" v1="0.001" variant="" />
+		<Element name="wayne_teleport_builder.tex" u1="0.501" u2="0.749" v2="0.249" v1="0.001" variant="" />
+	</Elements>
+</Atlas>
