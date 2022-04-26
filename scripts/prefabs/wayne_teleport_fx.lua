@@ -1,4 +1,4 @@
-local INK = WAYNE_INK_COLOUR
+local INK = WETZEL_INK_COLOUR
 
 local assets =
 {
@@ -44,4 +44,4 @@ local function fn()
 	return inst
 end
 
-return Prefab("wayne_teleport_fx", fn, assets)
+return Prefab("wetzel_teleport_fx", fn, assets)

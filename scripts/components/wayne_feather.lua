@@ -1,4 +1,4 @@
-local WayneFeather = Class(function(self, inst)
+local WetzelFeather = Class(function(self, inst)
 	self.inst = inst
 
 	self.cost = 0
@@ -7,37 +7,37 @@ local WayneFeather = Class(function(self, inst)
 	self.noeffect = false
 end)
 
-function WayneFeather:SetCost(cost)
+function WetzelFeather:SetCost(cost)
 	self.cost = cost
 end
 
-function WayneFeather:SetOnUse(fn)
+function WetzelFeather:SetOnUse(fn)
 	self.onuse = fn
 end
 
-function WayneFeather:SetColour(colour)
+function WetzelFeather:SetColour(colour)
 	self.colour = colour
 end
 
-function WayneFeather:GetColour()
-	return WAYNE_FEATHERS_COLOURS[self.colour]
+function WetzelFeather:GetColour()
+	return WETZEL_FEATHERS_COLOURS[self.colour]
 end
 
-function WayneFeather:Useable(doer)
-	return GetWayneBottle(doer, self.cost) ~= nil
+function WetzelFeather:Useable(doer)
+	return GetWetzelBottle(doer, self.cost) ~= nil
 end
 
-function WayneFeather:Use(doer)
-	local bottle = GetWayneBottle(doer, self.cost)
+function WetzelFeather:Use(doer)
+	local bottle = GetWetzelBottle(doer, self.cost)
 	if not bottle then
 		return false, "NO_INK"
 	end
 
 	if not self.noeffect then
-		SendModRPCToClient(GetClientModRPC("WAYNE", "INK"), doer--[[, self.colour]])
+		SendModRPCToClient(GetClientModRPC("WETZEL", "INK"), doer--[[, self.colour]])
 	end
 
-	bottle.components.wayne_bottle:Use(self.cost * TUNING.WAYNE.BOTTLE_USES)
+	bottle.components.wetzel_bottle:Use(self.cost * TUNING.WETZEL.BOTTLE_USES)
 	
 	-- Fox: Consume only after we're done, so feather stays in hand
 	doer.sg.statemem.onexit = function() self:Consume(bottle) end
@@ -45,8 +45,8 @@ function WayneFeather:Use(doer)
 	return self.onuse(self.inst, doer, bottle)
 end
 
-function WayneFeather:Consume(bottle)
+function WetzelFeather:Consume(bottle)
 	self.inst.components.finiteuses:Use(1)
 end
 
-return WayneFeather
+return WetzelFeather

@@ -1,19 +1,19 @@
-local INK = Vector3(WAYNE_INK_COLOUR[1], WAYNE_INK_COLOUR[2], WAYNE_INK_COLOUR[3])
+local INK = Vector3(WETZEL_INK_COLOUR[1], WETZEL_INK_COLOUR[2], WETZEL_INK_COLOUR[3])
 
 local function MakeInkColour(inst, colouradder)
 	-- Fox: Used if we do colour tween
 	if colouradder then
 		inst:AddComponent("colouradder")
-		inst.components.colouradder:PushColour("ink_colour", unpack(WAYNE_INK_COLOUR))
+		inst.components.colouradder:PushColour("ink_colour", unpack(WETZEL_INK_COLOUR))
 	else
-		inst.AnimState:SetAddColour(unpack(WAYNE_INK_COLOUR))
+		inst.AnimState:SetAddColour(unpack(WETZEL_INK_COLOUR))
 	end
 	inst.AnimState:SetMultColour(0, 0, 0, 1)
 end
 
 return {
 	{
-		name = "wayne_portal_splash",
+		name = "wetzel_portal_splash",
 		bank = "quagmire_portalspawn_fx",
 		build = "quagmire_portalspawn_fx",
 		anim = "exit",
@@ -30,7 +30,7 @@ return {
 	},
 
 	{
-		name = "wayne_heal_splash",
+		name = "wetzel_heal_splash",
 		bank = "quagmire_portalspawn_fx",
 		build = "quagmire_portalspawn_fx",
 		anim = "exit",
@@ -43,12 +43,12 @@ return {
 
 			inst.AnimState:SetFinalOffset(1)
 			inst.AnimState:SetHaunted(true)
-			SpawnPrefab("wayne_feather_fx"):SetTarget(inst, {1, 0, 0})
+			SpawnPrefab("wetzel_feather_fx"):SetTarget(inst, {1, 0, 0})
 		end,
 	},
 
 	{
-		name = "wayne_freeze_splash",
+		name = "wetzel_freeze_splash",
 		bank = "quagmire_portalspawn_fx",
 		build = "quagmire_portalspawn_fx",
 		anim = "exit",
@@ -61,12 +61,12 @@ return {
 
 			inst.AnimState:SetFinalOffset(1)
 			inst.AnimState:SetHaunted(true)
-			SpawnPrefab("wayne_feather_fx"):SetTarget(inst, {51/255, 153/255, 1})
+			SpawnPrefab("wetzel_feather_fx"):SetTarget(inst, {51/255, 153/255, 1})
 		end,
 	},
 
 	{
-		name = "wayne_yellow_fx",
+		name = "wetzel_yellow_fx",
 		bank = "quagmire_portalspawn_fx",
 		build = "quagmire_portalspawn_fx",
 		anim = "exit",
@@ -79,12 +79,12 @@ return {
 
 			inst.AnimState:SetFinalOffset(1)
 			inst.AnimState:SetHaunted(true)
-			SpawnPrefab("wayne_feather_fx"):SetTarget(inst, {1, 1, 0})
+			SpawnPrefab("wetzel_feather_fx"):SetTarget(inst, {1, 1, 0})
 		end,
 	},
 	
 	{
-        name = "wayne_shadoweat_fx",
+        name = "wetzel_shadoweat_fx",
         bank = "quagmire_portaldrip_fx",
         build = "quagmire_portaldrip_fx",
         anim = "idle",
@@ -99,7 +99,7 @@ return {
 	},
 
 	{
-		name = "wayne_freeze_fx",
+		name = "wetzel_freeze_fx",
 		bank = "crabking_ring_fx",
 		build = "crabking_ring_fx",
 		anim = "tweens",
@@ -116,8 +116,8 @@ return {
 			
 			inst:AddComponent("colourtweener")
 			inst:DoTaskInTime(0.15, function() inst.components.colourtweener:StartTween({1, 1, 1, 1}, 0.25) end)
-			-- SpawnPrefab("wayne_feather_fx"):SetTarget(inst, WAYNE_INK_COLOUR)
-			-- inst.AnimState:SetAddColour(unpack(WAYNE_INK_COLOUR))
+			-- SpawnPrefab("wetzel_feather_fx"):SetTarget(inst, WETZEL_INK_COLOUR)
+			-- inst.AnimState:SetAddColour(unpack(WETZEL_INK_COLOUR))
 		end,
 	}
 }

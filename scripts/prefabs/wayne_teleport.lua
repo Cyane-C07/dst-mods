@@ -1,5 +1,5 @@
 local SCALE = 0.75
-local INK = WAYNE_INK_COLOUR
+local INK = WETZEL_INK_COLOUR
 
 local assets =
 {
@@ -28,20 +28,20 @@ local function OnActivate(inst, doer)
 end
 
 local function onaccept(inst, giver, item)
-	SpawnAt("wayne_portal_splash", inst).Transform:SetScale(0.5, 0.5, 0.5)
+	SpawnAt("wetzel_portal_splash", inst).Transform:SetScale(0.5, 0.5, 0.5)
 	inst.components.inventory:DropItem(item)
 	inst.components.teleporter:Activate(item)
 	
 end
 
 local function StartTravelSound(inst, doer)
-	SpawnAt("wayne_portal_splash", inst)
+	SpawnAt("wetzel_portal_splash", inst)
 end
 
 local function OnDoneTeleporting(inst, obj)
 	local isplayer = obj and obj:HasTag("player")
 
-	local fx = SpawnAt("wayne_portal_splash", inst)
+	local fx = SpawnAt("wetzel_portal_splash", inst)
 	
 	if not isplayer then
 		fx.Transform:SetScale(0.5, 0.5, 0.5)
@@ -55,8 +55,8 @@ end
 local function RegisterPortal(inst)
 	local w = TheWorld
 	
-	if w and w.components.wayne_portal_manager and inst.owner then
-		w.components.wayne_portal_manager:LoadPortal(inst)
+	if w and w.components.wetzel_portal_manager and inst.owner then
+		w.components.wetzel_portal_manager:LoadPortal(inst)
 	end
 end
 
@@ -78,10 +78,10 @@ local function OnLoad(inst, data)
 end
 
 local function OnRemove(inst)
-	if not TheWorld.components.wayne_portal_manager then
+	if not TheWorld.components.wetzel_portal_manager then
 		return
 	end
-	TheWorld.components.wayne_portal_manager:UnregisterPortal(inst)
+	TheWorld.components.wetzel_portal_manager:UnregisterPortal(inst)
 end
 
 local function Destroy(inst)
@@ -155,7 +155,7 @@ local function fn()
 	inst.components.trader.deleteitemonaccept = false
 
 	-- inst.SoundEmitter:PlaySound("dontstarve/quagmire/common/portal/LP", "portal_LP")
-	inst.SoundEmitter:PlaySound("wayne/common/wayne_portal/LP", "portal_LP")
+	inst.SoundEmitter:PlaySound("wetzel/common/wetzel_portal/LP", "portal_LP")
 
 	inst.Destroy = Destroy
 	
@@ -169,12 +169,12 @@ local function fn()
 end
 
 local function OnBuilt(inst, builder)
-	if not builder:HasTag("wayne") or not TheWorld.components.wayne_portal_manager then
+	if not builder:HasTag("wetzel") or not TheWorld.components.wetzel_portal_manager then
 		return false
 	end
 	
-	local portal = SpawnAt("wayne_teleport", inst)
-	TheWorld.components.wayne_portal_manager:CreatePortal(portal, builder.userid)
+	local portal = SpawnAt("wetzel_teleport", inst)
+	TheWorld.components.wetzel_portal_manager:CreatePortal(portal, builder.userid)
 	
 	inst:Remove()
 
@@ -186,6 +186,6 @@ local function placerfn(inst)
 	inst.AnimState:SetScale(SCALE, SCALE)
 end
 
-return Prefab("wayne_teleport", fn, assets),
-	   Prefab("wayne_teleport_builder", MakeBuilder(OnBuilt)),
-	   MakePlacer("wayne_teleport_placer", "box_shared_spiral", "box_shared_spiral", "idle_loop", true, nil, nil, nil, nil, nil, placerfn)
+return Prefab("wetzel_teleport", fn, assets),
+	   Prefab("wetzel_teleport_builder", MakeBuilder(OnBuilt)),
+	   MakePlacer("wetzel_teleport_placer", "box_shared_spiral", "box_shared_spiral", "idle_loop", true, nil, nil, nil, nil, nil, placerfn)

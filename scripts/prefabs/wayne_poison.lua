@@ -14,15 +14,15 @@ local MIN_ALPHA = 0.4
 local ALPHA_MULT = 1 - MIN_ALPHA
 local calc_alpha = function(alpha) return MIN_ALPHA + alpha * ALPHA_MULT end
 
-local INK = WAYNE_INK_COLOUR
+local INK = WETZEL_INK_COLOUR
 
 local NO_TAGS = { "INLIMBO", "playerghost" }
 
 local assets =
 {
-	Asset("ANIM", "anim/wayne_poison_ground.zip"),
+	Asset("ANIM", "anim/wetzel_poison_ground.zip"),
 	Asset("ANIM", "anim/lavaarena_hits_splash.zip"),
-	Asset("ANIM", "anim/wayne_poison_fx.zip"),
+	Asset("ANIM", "anim/wetzel_poison_fx.zip"),
 }
 
 local function IsValidTarget(inst)
@@ -44,7 +44,7 @@ local function RemovePoison(inst, ent)
 	end
 
 	if ent.components.locomotor then
-		ent.components.locomotor:RemoveExternalSpeedMultiplier(inst, "wayne_poison")
+		ent.components.locomotor:RemoveExternalSpeedMultiplier(inst, "wetzel_poison")
 	end
 
 	if ent.components.colourtweener then
@@ -74,7 +74,7 @@ local function ApplyPoison(inst, ent)
 	end
 
 	if ent.components.locomotor then
-		ent.components.locomotor:SetExternalSpeedMultiplier(inst, "wayne_poison", SLOWDOWN * inst.level)
+		ent.components.locomotor:SetExternalSpeedMultiplier(inst, "wetzel_poison", SLOWDOWN * inst.level)
 	end
 
 	ent._hadcolourtweener = ent.components.colourtweener ~= nil
@@ -182,8 +182,8 @@ local function CreateFx()
 	inst.entity:AddTransform()
 	inst.entity:AddAnimState()
 
-	inst.AnimState:SetBank("wayne_poison_fx")
-	inst.AnimState:SetBuild("wayne_poison_fx")
+	inst.AnimState:SetBank("wetzel_poison_fx")
+	inst.AnimState:SetBuild("wetzel_poison_fx")
 	inst.AnimState:PlayAnimation("idle"..tostring(math.random(1, 2)))
 	inst.AnimState:SetScale(2, 2)
 
@@ -259,7 +259,7 @@ local function fn()
 	inst.entity:AddSoundEmitter()
 	inst.entity:AddNetwork()
 
-	inst.AnimState:SetBuild("wayne_poison_ground")
+	inst.AnimState:SetBuild("wetzel_poison_ground")
 	inst.AnimState:SetBank("fish_chum")
 	inst.AnimState:PlayAnimation("fish_chum_base_pre")
 	inst.AnimState:SetTime(19 * FRAMES)
@@ -270,12 +270,12 @@ local function fn()
 	inst.AnimState:SetSortOrder(3)
 	inst.AnimState:SetFinalOffset(1)
 
-	inst:AddTag("wayne_poison")
+	inst:AddTag("wetzel_poison")
 	inst:AddTag("noblock")
 	inst:AddTag("FX")
 
 	inst.level = 1
-	inst._level = net_byte(inst.GUID, "wayne_poison._level", "leveldirty")
+	inst._level = net_byte(inst.GUID, "wetzel_poison._level", "leveldirty")
 
 	if not TheNet:IsDedicated() then
 		inst:ListenForEvent("leveldirty", LevelDirty)
@@ -319,5 +319,5 @@ local function fn()
 	return inst
 end
 
--- c_spawn("wayne_poison"):SetLevel(0)
-return Prefab("wayne_poison", fn, assets)
+-- c_spawn("wetzel_poison"):SetLevel(0)
+return Prefab("wetzel_poison", fn, assets)

@@ -1,6 +1,6 @@
 local assets =
 {
-	Asset("ANIM", "anim/wayne_feather.zip"),
+	Asset("ANIM", "anim/wetzel_feather.zip"),
 }
 
 local prefs = {}
@@ -8,11 +8,11 @@ local prefs = {}
 local SPEED = 0.002
 
 local function CreateFeather(name, colour, uses, bottle_delta, onuse)
-	local prefab_name = "wayne_feather_"..name
+	local prefab_name = "wetzel_feather_"..name
 	local royal_skin_name = prefab_name.."_royal"
 
 	local function OnEquip(inst, owner)
-		owner.AnimState:OverrideSymbol("swap_object", inst.skinname or "wayne_feather", "feather_"..name)
+		owner.AnimState:OverrideSymbol("swap_object", inst.skinname or "wetzel_feather", "feather_"..name)
 		owner.AnimState:Show("ARM_carry")
 		owner.AnimState:Hide("ARM_normal")
 	end
@@ -29,8 +29,8 @@ local function CreateFeather(name, colour, uses, bottle_delta, onuse)
 		inst.entity:AddAnimState()
 		inst.entity:AddNetwork()
 
-		inst.AnimState:SetBank("wayne_feather")
-		inst.AnimState:SetBuild(skinname or "wayne_feather")
+		inst.AnimState:SetBank("wetzel_feather")
+		inst.AnimState:SetBuild(skinname or "wetzel_feather")
 		inst.AnimState:PlayAnimation("idle_"..name)
 
 		MakeInventoryPhysics(inst)
@@ -45,7 +45,6 @@ local function CreateFeather(name, colour, uses, bottle_delta, onuse)
 		inst:AddComponent("inspectable")
 
 		inst:AddComponent("inventoryitem")
-		inst.components.inventoryitem.atlasname = "images/wayne_inv.xml"
 
 		inst:AddComponent("equippable")
 		inst.components.equippable:SetOnEquip(OnEquip)
@@ -60,11 +59,11 @@ local function CreateFeather(name, colour, uses, bottle_delta, onuse)
 		inst:AddComponent("weapon")
 		inst.components.weapon.attackwear = 0
 
-		inst:AddComponent("wayne_feather")
-		inst.components.wayne_feather:SetCost(bottle_delta)
-		inst.components.wayne_feather:SetOnUse(onuse)
-		inst.components.wayne_feather:SetColour(colour)
-		inst.components.wayne_feather.noeffect = (name == "black")
+		inst:AddComponent("wetzel_feather")
+		inst.components.wetzel_feather:SetCost(bottle_delta)
+		inst.components.wetzel_feather:SetOnUse(onuse)
+		inst.components.wetzel_feather:SetColour(colour)
+		inst.components.wetzel_feather.noeffect = (name == "black")
 		
 		inst:ListenForEvent("floater_startfloating", function(inst) inst.AnimState:PlayAnimation("float_"..name) end)
 		inst:ListenForEvent("floater_stopfloating", function(inst) inst.AnimState:PlayAnimation("idle_"..name) end)
@@ -111,7 +110,7 @@ local function DoHeal(inst)
 	if TheNet:GetPVPEnabled() then
 		targets = {inst}
 	else
-		local range = TUNING.WAYNE.FEATHER_HEALING_RANGE * TUNING.WAYNE.FEATHER_HEALING_RANGE
+		local range = TUNING.WETZEL.FEATHER_HEALING_RANGE * TUNING.WETZEL.FEATHER_HEALING_RANGE
 
 		for i, ent in ipairs(AllPlayers) do
 			if not (ent.components.health:IsDead() or ent:HasTag("playerghost")) and
@@ -123,11 +122,11 @@ local function DoHeal(inst)
 	end
 
 	if next(targets) then
-		local amt = math.max(TUNING.WAYNE.FEATHER_HEALING_MAX + (#targets - 1) * TUNING.WAYNE.FEATHER_HEALING_PER_PLAYER, TUNING.WAYNE.FEATHER_HEALING_MIN)
+		local amt = math.max(TUNING.WETZEL.FEATHER_HEALING_MAX + (#targets - 1) * TUNING.WETZEL.FEATHER_HEALING_PER_PLAYER, TUNING.WETZEL.FEATHER_HEALING_MIN)
 		
 		local function heal(ent)
-			ent.components.health:DoDelta(ent == inst and TUNING.WAYNE.FEATHER_HEALING_MAX or amt, nil, inst.prefab)
-			SpawnAt("wayne_heal_splash", ent)
+			ent.components.health:DoDelta(ent == inst and TUNING.WETZEL.FEATHER_HEALING_MAX or amt, nil, inst.prefab)
+			SpawnAt("wetzel_heal_splash", ent)
 		end
 
 		for i, ent in ipairs(targets) do
@@ -158,7 +157,7 @@ local function ApplyFreeze(inst)
 	end
 
 	if inst.components.freezable then
-		inst.components.freezable:AddColdness(10, inst:HasTag("player") and TUNING.WAYNE.FEATHER_FREEZE_PLAYER or TUNING.WAYNE.FEATHER_FREEZE)
+		inst.components.freezable:AddColdness(10, inst:HasTag("player") and TUNING.WETZEL.FEATHER_FREEZE_PLAYER or TUNING.WETZEL.FEATHER_FREEZE)
 	end
 
 	if inst.components.burnable then 
@@ -173,15 +172,15 @@ end
 local function Freeze(inst)
 	local x, y, z = inst.Transform:GetWorldPosition()
 
-	for _, ent in ipairs(TheSim:FindEntities(x, 0, z, TUNING.WAYNE.FEATHER_FREEZE_RANGE, nil, FREEZE_NO_TAGS, FREEZE_TAGS)) do
+	for _, ent in ipairs(TheSim:FindEntities(x, 0, z, TUNING.WETZEL.FEATHER_FREEZE_RANGE, nil, FREEZE_NO_TAGS, FREEZE_TAGS)) do
 		if ent ~= inst and (not TheNet:GetPVPEnabled() or not ent:HasTag("player")) then
 			local t = 0.25 + ent:GetDistanceSqToPoint(x, y, z) * SPEED
 			ent:DoTaskInTime(t, ApplyFreeze)
 		end
 	end
 
-	SpawnPrefab("wayne_freeze_splash").Transform:SetPosition(x, 0, z)
-	SpawnPrefab("wayne_freeze_fx").Transform:SetPosition(x, 0, z)
+	SpawnPrefab("wetzel_freeze_splash").Transform:SetPosition(x, 0, z)
+	SpawnPrefab("wetzel_freeze_fx").Transform:SetPosition(x, 0, z)
 end
 
 local function White(inst, doer, bottle)
@@ -191,23 +190,23 @@ end
 
 local function Yellow(inst, doer, bottle)
 	if doer.components.debuffable then
-		doer.components.debuffable:AddDebuff("buff_wayne_light", "buff_wayne_light")
+		doer.components.debuffable:AddDebuff("buff_wetzel_light", "buff_wetzel_light")
 	end
 
 	if doer.components.temperature then
-		doer.components.temperature:SetTemperature(TUNING.WAYNE.FEATHER_LIGHT_TEMP)
+		doer.components.temperature:SetTemperature(TUNING.WETZEL.FEATHER_LIGHT_TEMP)
 	end
 
-	SpawnAt("wayne_yellow_fx", doer)
+	SpawnAt("wetzel_yellow_fx", doer)
 
 	return true
 end
 
 -------------------------------------------------------------------------------
 
-CreateFeather("black", WAYNE_FEATHERS.BLACK, TUNING.WAYNE.FEATHER_TELEPORT_USES, TUNING.WAYNE.TELEPORT_TELEPORT_COST, Black)
-CreateFeather("red", WAYNE_FEATHERS.RED, TUNING.WAYNE.FEATHER_HEALING_USES, TUNING.WAYNE.FEATHER_HEALING_COST, Red)
-CreateFeather("white", WAYNE_FEATHERS.WHITE, TUNING.WAYNE.FEATHER_FREEZE_USES, TUNING.WAYNE.FEATHER_FREEZE_COST, White)
-CreateFeather("yellow", WAYNE_FEATHERS.YELLOW, TUNING.WAYNE.FEATHER_LIGHT_USES, TUNING.WAYNE.FEATHER_LIGHT_COST, Yellow)
+CreateFeather("black", WETZEL_FEATHERS.BLACK, TUNING.WETZEL.FEATHER_TELEPORT_USES, TUNING.WETZEL.TELEPORT_TELEPORT_COST, Black)
+CreateFeather("red", WETZEL_FEATHERS.RED, TUNING.WETZEL.FEATHER_HEALING_USES, TUNING.WETZEL.FEATHER_HEALING_COST, Red)
+CreateFeather("white", WETZEL_FEATHERS.WHITE, TUNING.WETZEL.FEATHER_FREEZE_USES, TUNING.WETZEL.FEATHER_FREEZE_COST, White)
+CreateFeather("yellow", WETZEL_FEATHERS.YELLOW, TUNING.WETZEL.FEATHER_LIGHT_USES, TUNING.WETZEL.FEATHER_LIGHT_COST, Yellow)
 
 return unpack(prefs)

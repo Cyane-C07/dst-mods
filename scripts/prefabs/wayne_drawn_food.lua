@@ -2,10 +2,10 @@ local preparedfoods = require("preparedfoods")
 local preparedfoods_warly = require("preparedfoods_warly")
 local spicedfoods = require("spicedfoods")
 
-local FADEOUT_TIME = TUNING.WAYNE.FOOD_PERISH_TIME
-local TIMER_NAME = "wayne_item_fadeout"
+local FADEOUT_TIME = TUNING.WETZEL.FOOD_PERISH_TIME
+local TIMER_NAME = "wetzel_item_fadeout"
 local MAX_FADE = 0.10
-local INK = WAYNE_INK_COLOUR
+local INK = WETZEL_INK_COLOUR
 
 local function LookupPreparedfoodData(item)
 	return preparedfoods[item] or preparedfoods_warly[item] or spicedfoods[item]
@@ -224,10 +224,10 @@ local function fn()
 
 	MakeInventoryFloatable(inst)
 
-	inst:AddTag("wayne_drawnitem")
+	inst:AddTag("wetzel_drawnitem")
 
-	inst._origin = net_string(inst.GUID, "wayne_drawn_food._origin", "origindirty")
-	inst._perish = net_byte(inst.GUID, "wayne_drawn_food._perish", "perishdirty")
+	inst._origin = net_string(inst.GUID, "wetzel_drawn_food._origin", "origindirty")
+	inst._perish = net_byte(inst.GUID, "wetzel_drawn_food._perish", "perishdirty")
 	inst:ListenForEvent("origindirty", OnOriginDirty)
 	
 	inst.entity:SetPristine()
@@ -262,4 +262,4 @@ local function fn()
 	return inst
 end
 
-return Prefab("wayne_drawn_food", fn)
+return Prefab("wetzel_drawn_food", fn)

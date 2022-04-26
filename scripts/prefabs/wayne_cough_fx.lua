@@ -1,6 +1,6 @@
 local assets =
 {
-	Asset("ANIM", "anim/wayne_cough_fx.zip"),
+	Asset("ANIM", "anim/wetzel_cough_fx.zip"),
 }
 
 local function Update(inst, dt)
@@ -23,8 +23,8 @@ local function ClientInit(inst)
 		Update(inst, 0)
 
 		-- Fox: Init anim only after we updated rotation
-		inst.AnimState:SetBank("wayne_cough_fx")
-		inst.AnimState:SetBuild("wayne_cough_fx")
+		inst.AnimState:SetBank("wetzel_cough_fx")
+		inst.AnimState:SetBuild("wetzel_cough_fx")
 		inst:DoTaskInTime(FRAMES, function(inst)
 			inst.AnimState:PlayAnimation("idle")
 		end)
@@ -57,4 +57,4 @@ local function fn()
 	return inst
 end
 
-return Prefab("wayne_cough_fx", fn, assets)
+return Prefab("wetzel_cough_fx", fn, assets)

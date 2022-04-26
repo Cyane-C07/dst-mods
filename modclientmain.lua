@@ -1,76 +1,87 @@
-local WAYNE_MENU = GetModConfigData("wayne_main_menu")
-print("WAYNE_MENU", WAYNE_MENU)
+local WETZEL_MENU = GetModConfigData("wetzel_main_menu")
+print("WETZEL_MENU", WETZEL_MENU)
 
 _G = GLOBAL
 
 PrefabFiles = {
-	"wayne",
-	"wayne_skins",
-	"wayne_feather",
+	"wetzel",
+	"wetzel_none",
 }
 
 Assets = {
-	Asset("ANIM", "anim/frame_bg_modded.zip"),
+    Asset( "IMAGE", "images/saveslot_portraits/wetzel.tex" ),
+    Asset( "ATLAS", "images/saveslot_portraits/wetzel.xml" ),
 
-	Asset("IMAGE", "bigportraits/wayne.tex"),
-	Asset("ATLAS", "bigportraits/wayne.xml"),
-	Asset("IMAGE", "bigportraits/wayne_none.tex"),
-	Asset("ATLAS", "bigportraits/wayne_none.xml"),
-	Asset("ATLAS", "bigportraits/wayne.xml"),
-	Asset("IMAGE", "bigportraits/wayne_shadow.tex"),
-	Asset("ATLAS", "bigportraits/wayne_shadow.xml"),
+    Asset( "IMAGE", "images/selectscreen_portraits/wetzel.tex" ),
+    Asset( "ATLAS", "images/selectscreen_portraits/wetzel.xml" ),
+ 
+    Asset( "IMAGE", "images/selectscreen_portraits/wetzel_silho.tex" ),
+    Asset( "ATLAS", "images/selectscreen_portraits/wetzel_silho.xml" ),
 
-	Asset("IMAGE", "images/avatars/avatar_ghost_wayne.tex"),
-	Asset("ATLAS", "images/avatars/avatar_ghost_wayne.xml"),
-	Asset("IMAGE", "images/avatars/avatar_wayne.tex"),
-	Asset("ATLAS", "images/avatars/avatar_wayne.xml"),
-	Asset("IMAGE", "images/avatars/self_inspect_wayne.tex"),
-	Asset("ATLAS", "images/avatars/self_inspect_wayne.xml"),
-	Asset("IMAGE", "images/saveslot_portraits/wayne.tex"),
-	Asset("ATLAS", "images/saveslot_portraits/wayne.xml"),
-	
-	Asset("IMAGE", "images/names_gold_wayne.tex"),
-	Asset("ATLAS", "images/names_gold_wayne.xml"),
-	Asset("IMAGE", "images/names_wayne.tex"),
-	Asset("ATLAS", "images/names_wayne.xml"),
-	Asset("IMAGE", "images/wayne_inv.tex"),
-	Asset("ATLAS", "images/wayne_inv.xml"),
+    Asset( "IMAGE", "bigportraits/wetzel.tex" ),
+    Asset( "ATLAS", "bigportraits/wetzel.xml" ),
+
+	Asset( "IMAGE", "images/map_icons/wetzel.tex" ),
+	Asset( "ATLAS", "images/map_icons/wetzel.xml" ),
+
+	Asset( "IMAGE", "images/avatars/avatar_wetzel.tex" ),
+    Asset( "ATLAS", "images/avatars/avatar_wetzel.xml" ),
+
+	Asset( "IMAGE", "images/avatars/avatar_ghost_wetzel.tex" ),
+    Asset( "ATLAS", "images/avatars/avatar_ghost_wetzel.xml" ),
+
+	Asset( "IMAGE", "images/avatars/self_inspect_wetzel.tex" ),
+    Asset( "ATLAS", "images/avatars/self_inspect_wetzel.xml" ),
+
+	Asset( "IMAGE", "images/names_wetzel.tex" ),
+    Asset( "ATLAS", "images/names_wetzel.xml" ),
+
+	Asset( "IMAGE", "images/names_gold_wetzel.tex" ),
+    Asset( "ATLAS", "images/names_gold_wetzel.xml" ),
+
+    Asset("SOUNDPACKAGE","sound/wetzel.fev"),
+    Asset("SOUND","sound/wetzel.fsb"),
 }
 
-if WAYNE_MENU then
-	table.insert(Assets, Asset("DYNAMIC_ANIM", "anim/dynamic/dst_menu_wayne.zip"))
-	table.insert(Assets, Asset("PKGREF", "anim/dynamic/dst_menu_wayne.dyn"))
+if WETZEL_MENU then
+	table.insert(Assets, Asset("DYNAMIC_ANIM", "anim/dynamic/dst_menu_wetzel.zip"))
+	table.insert(Assets, Asset("PKGREF", "anim/dynamic/dst_menu_wetzel.dyn"))
 end
 
 local env = env
 _G.setfenv(1, _G)
 
-require("wayne/strings")
-require("wayne/tuning")
-env.modimport("scripts/wayne/skins.lua")
+require("wetzel/strings")
+require("wetzel/tuning")
+env.modimport("scripts/wetzel/skins.lua")
 
-env.AddModCharacter("wayne", "MALE")
+local skin_modes = {
+    {
+        type = "ghost_skin",
+        anim_bank = "ghost",
+        idle_anim = "idle",
+        scale = 0.75,
+        offset = { 0, -25 }
+    },
+}
+
+env.AddModCharacter("wetzel", "NEUTRAL", skin_modes)
 
 require("simutil")
 do
 	local UpvalueHacker = require("tools/upvaluehacker")
 	local _GetInventoryItemAtlas = GetInventoryItemAtlas
 	local inventoryItemAtlasLookup = UpvalueHacker.GetUpvalue(GetInventoryItemAtlas, "inventoryItemAtlasLookup")
-	local wayne_inv = resolvefilepath("images/wayne_inv.xml")
 
 	GetInventoryItemAtlas = function(imagename, ...)
 		if inventoryItemAtlasLookup[imagename] then
 			return inventoryItemAtlasLookup[imagename]
 		end
-		if TheSim:AtlasContains(wayne_inv, imagename) then
-			inventoryItemAtlasLookup[imagename] = wayne_inv
-			return wayne_inv
-		end
 		return _GetInventoryItemAtlas(imagename, ...)
 	end
 end
 
-if WAYNE_MENU then
+if WETZEL_MENU then
 	require("screens/redux/multiplayermainscreen")
 
 	local _MakeBanner = MakeBanner
@@ -81,8 +92,8 @@ if WAYNE_MENU then
 		local baner_root = Widget("banner_root")
 		local anim = baner_root:AddChild(UIAnim())
 		
-        anim:GetAnimState():SetBuild("dst_menu_wayne")
-        anim:GetAnimState():SetBank ("dst_menu_wayne")
+        anim:GetAnimState():SetBuild("dst_menu_wetzel")
+        anim:GetAnimState():SetBank ("dst_menu_wetzel")
         anim:GetAnimState():PlayAnimation("loop", true)
         anim:SetScale(.667)
 

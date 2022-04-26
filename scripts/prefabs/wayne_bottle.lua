@@ -1,13 +1,12 @@
 local assets =
 {
-	Asset("ANIM", "anim/wayne_bottle.zip"),
+	Asset("ANIM", "anim/wetzel_bottle.zip"),
 	
-	Asset("ATLAS", "images/wayne_inv.xml"),
-	Asset("IMAGE", "images/wayne_inv.tex"),
+	-- Asset("IMAGE", "images/wetzel_inv.tex"),
 }
 
 local prefabs = {
-	"wayne_poison",
+	"wetzel_poison",
 	"ink_splash"
 }
 
@@ -45,12 +44,12 @@ local function Update(inst)
 		inst.AnimState:HideSymbol("ink2")
 	else
 		inst.AnimState:ShowSymbol("ink2")
-		inst.AnimState:OverrideSymbol("ink2", "wayne_bottle", "ink"..level - 1)
+		inst.AnimState:OverrideSymbol("ink2", "wetzel_bottle", "ink"..level - 1)
 	end
-	inst.components.inventoryitem:ChangeImageName("wayne_bottle_"..level)
+	inst.components.inventoryitem:ChangeImageName("wetzel_bottle_"..level)
 
 	if inst.components.equippable:IsEquipped() and inst.components.inventoryitem.owner then
-		inst.components.inventoryitem.owner.AnimState:OverrideSymbol("swap_object", "wayne_bottle", "swap_bottle"..level)
+		inst.components.inventoryitem.owner.AnimState:OverrideSymbol("swap_object", "wetzel_bottle", "swap_bottle"..level)
 	end
 end
 
@@ -58,7 +57,7 @@ local function DoImpact(inst)
 	if TheWorld.Map:IsOceanAtPoint(inst.Transform:GetWorldPosition()) then
 		SpawnAt("weregoose_splash_less"..math.random(1, 2), inst)
 	else
-		inst.SoundEmitter:PlaySound("wayne/common/wayne_bottle/impact")
+		inst.SoundEmitter:PlaySound("wetzel/common/wetzel_bottle/impact")
 		PlayFootstep(inst, 1, true)
 	end
 end
@@ -68,8 +67,8 @@ local function OnHit(inst, attacker, target)
 	local onocean = TheWorld.Map:IsOceanAtPoint(x, y, z)
 
 	if inst.components.finiteuses:GetPercent() > 0 and
-	not TheSim:FindEntities(x, 0, z, 6.5, {"wayne_poison"})[1] then
-		SpawnAt("wayne_poison", inst):SetLevel(inst.components.finiteuses:GetPercent(), attacker)
+	not TheSim:FindEntities(x, 0, z, 6.5, {"wetzel_poison"})[1] then
+		SpawnAt("wetzel_poison", inst):SetLevel(inst.components.finiteuses:GetPercent(), attacker)
 		inst.components.finiteuses:SetUses(0)
 	end   
 
@@ -163,8 +162,8 @@ local function fn()
 
 	MakeInventoryPhysics(inst)
 
-	inst.AnimState:SetBank("wayne_bottle")
-	inst.AnimState:SetBuild("wayne_bottle")
+	inst.AnimState:SetBank("wetzel_bottle")
+	inst.AnimState:SetBuild("wetzel_bottle")
 	inst.AnimState:PlayAnimation("idle")
 
 	inst:AddComponent("reticule")
@@ -175,7 +174,7 @@ local function fn()
 	inst.components.reticule.mouseenabled = true
 
 	inst:AddTag("nopunch")
-	inst:AddTag("wayne_bottle")
+	inst:AddTag("wetzel_bottle")
 
 	MakeInventoryPhysics(inst)
 	MakeInventoryFloatable(inst, "small", 0.3, {0.7, 1, 1})
@@ -198,8 +197,7 @@ local function fn()
 	inst.components.complexprojectile:SetOnHit(OnHit)
 
 	inst:AddComponent("inventoryitem")
-	inst.components.inventoryitem.atlasname = "images/wayne_inv.xml"
-	inst.components.inventoryitem.imagename = "wayne_bottle_4"
+	inst.components.inventoryitem.imagename = "wetzel_bottle_4"
 
 	inst:AddComponent("equippable")
 	inst.components.equippable:SetOnEquip(OnEquip)
@@ -207,10 +205,9 @@ local function fn()
 	inst.components.equippable.restrictedtag = "shadowartist"
 	
 	inst:AddComponent("finiteuses")
-	inst.components.finiteuses:SetMaxUses(TUNING.WAYNE.BOTTLE_USES)
-	inst.components.finiteuses:SetUses(CHEATS_ENABLED and TUNING.WAYNE.BOTTLE_USES or 0)
+	inst.components.finiteuses:SetMaxUses(TUNING.WETZEL.BOTTLE_USES)
 	
-	inst:AddComponent("wayne_bottle")
+	inst:AddComponent("wetzel_bottle")
 	
 	inst:ListenForEvent("percentusedchange", Update)
 	inst:DoTaskInTime(0, Update)
@@ -219,4 +216,4 @@ local function fn()
 	return inst
 end
 
-return Prefab("wayne_bottle", fn, assets, prefabs)
+return Prefab("wetzel_bottle", fn, assets, prefabs)

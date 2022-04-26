@@ -1,17 +1,17 @@
-local TIME = TUNING.WAYNE.FEATHER_LIGHT_DURATION
+local TIME = TUNING.WETZEL.FEATHER_LIGHT_DURATION
 local MAX_CONTRAST = 1.4
 
 local function OnAttached(inst, target, followsymbol, followoffset)
 	inst.entity:SetParent(target.entity)
 	inst.Network:SetClassifiedTarget(target)
 
-	target.wayne_nightvision = true
+	target.wetzel_nightvision = true
 end
 
 local function OnDetached(inst)
 	local parent = inst.entity:GetParent()
 	if parent then
-		parent.wayne_nightvision = nil
+		parent.wetzel_nightvision = nil
 	end
 	inst:Remove()
 end
@@ -26,17 +26,17 @@ end
 
 -- local function UpdatePostProcess(inst, dt)
 -- 	inst._t = inst._t + dt
--- 	PostProcessor:SetUniformVariable(UniformVariables.WayneTime, inst._t)
+-- 	PostProcessor:SetUniformVariable(UniformVariables.WetzelTime, inst._t)
 -- end
 
 local function OnRemoveClient(inst, parent)
 	if parent.components.playervision then
-		parent.components.playervision:SetWayneVision(false)
+		parent.components.playervision:SetWetzelVision(false)
 	end
 
 	-- inst.components.updatelooper:RemoveOnWallUpdateFn(UpdatePostProcess)
-	-- PostProcessor:SetUniformVariable(UniformVariables.WayneTime, 0)
-	-- PostProcessor:EnablePostProcessEffect(PostProcessorEffects.WayneEffect, false)
+	-- PostProcessor:SetUniformVariable(UniformVariables.WetzelTime, 0)
+	-- PostProcessor:EnablePostProcessEffect(PostProcessorEffects.WetzelEffect, false)
 end
 
 local function ClientInit(inst)
@@ -45,11 +45,11 @@ local function ClientInit(inst)
 		-- inst:AddComponent("updatelooper")
 		-- inst._t = 0
 
-		-- PostProcessor:EnablePostProcessEffect(PostProcessorEffects.WayneEffect, true)
+		-- PostProcessor:EnablePostProcessEffect(PostProcessorEffects.WetzelEffect, true)
 		-- inst.components.updatelooper:AddOnWallUpdateFn(UpdatePostProcess)
 
 		if parent.components.playervision then
-			parent.components.playervision:SetWayneVision(true)
+			parent.components.playervision:SetWetzelVision(true)
 		end
 
 		parent:ListenForEvent("onremove", function()
@@ -90,4 +90,4 @@ local function fn()
 	return inst
 end
 
-return Prefab("buff_wayne_light", fn)
+return Prefab("buff_wetzel_light", fn)

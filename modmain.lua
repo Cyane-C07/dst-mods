@@ -6,7 +6,9 @@ local ToLoad = require("to_load")
 PrefabFiles = ToLoad.Prefabs
 Assets = ToLoad.Assets
 
-AddMinimapAtlas("minimap/minimap_atlas_wayne.xml")
+AddMinimapAtlas("images/map_icons/wetzel.xml")
 
-modimport("scripts/wayne/main.lua")
-modimport("scripts/wayne/skins.lua")
+-- here
+modimport("scripts/wetzel/main.lua")
+-- here
+modimport("scripts/wetzel/skins.lua")

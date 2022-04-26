@@ -1,5 +1,5 @@
-local DURATION = TUNING.WAYNE.FEATHER_TELEPORT_DURATION
-local SPEED = TUNING.WAYNE.FEATHER_TELEPORT_SPEED_MULT
+local DURATION = TUNING.WETZEL.FEATHER_TELEPORT_DURATION
+local SPEED = TUNING.WETZEL.FEATHER_TELEPORT_SPEED_MULT
 
 local assets = {
 	Asset("ANIM", "anim/status_meter_circle.zip"),
@@ -44,7 +44,7 @@ local function OnAttached(inst, target, followsymbol, followoffset)
 
 	if target.userid then
 		target.blocked_actions = true
-		SendModRPCToClient(GetClientModRPC("WAYNE", "TELEPORT"), target, true)
+		SendModRPCToClient(GetClientModRPC("WETZEL", "TELEPORT"), target, true)
 		target:ShowActions(false)
 		target:ShowHUD(false)
 	end
@@ -83,7 +83,7 @@ local function OnAttached(inst, target, followsymbol, followoffset)
 	end
 	
 	if target.components.talker then
-		target.components.talker:IgnoreAll("wayne_teleport")
+		target.components.talker:IgnoreAll("wetzel_teleport")
 	end
 	
 	if target.components.frostybreather then
@@ -103,7 +103,7 @@ local function Show(inst)
 
 	if inst.userid then
 		inst.blocked_actions = false
-		SendModRPCToClient(GetClientModRPC("WAYNE", "TELEPORT"), inst, false)
+		SendModRPCToClient(GetClientModRPC("WETZEL", "TELEPORT"), inst, false)
 		inst:ShowActions(true)
 		inst:ShowHUD(true)
 	end
@@ -138,7 +138,7 @@ local function Show(inst)
 	end
 	
 	if inst.components.talker then
-		inst.components.talker:StopIgnoringAll("wayne_teleport")
+		inst.components.talker:StopIgnoringAll("wetzel_teleport")
 	end
 	
 	if inst.components.frostybreather then
@@ -154,7 +154,7 @@ local function Show(inst)
 	end
 
 	inst.sg:GoToState("jumpout")
-	SpawnAt("wayne_portal_splash", inst)
+	SpawnAt("wetzel_portal_splash", inst)
 
 	ToggleOnPhysics(inst)
 end
@@ -163,7 +163,7 @@ local function OnDetached(inst)
 	local parent = inst.entity:GetParent()
 	
 	if parent then
-		local fx = SpawnAt("wayne_teleport_fx", parent)
+		local fx = SpawnAt("wetzel_teleport_fx", parent)
 		fx:DoTaskInTime(2, fx.Kill)
 		
 		if parent.components.playercontroller then
@@ -263,7 +263,7 @@ local function fn()
 	inst:AddTag("FX")
 	inst:AddTag("CLASSIFIED")
 
-	inst._time = net_smallbyte(inst.GUID, "buff_wayne_teleport._time", "timedirty")
+	inst._time = net_smallbyte(inst.GUID, "buff_wetzel_teleport._time", "timedirty")
 
 	if not TheNet:IsDedicated() then
 		if not inst._fx then
@@ -295,4 +295,4 @@ local function fn()
 	return inst
 end
 
-return Prefab("buff_wayne_teleport", fn, assets)
+return Prefab("buff_wetzel_teleport", fn, assets)

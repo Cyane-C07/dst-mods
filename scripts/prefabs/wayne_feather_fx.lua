@@ -1,4 +1,4 @@
-local INK = WAYNE_INK_COLOUR
+local INK = WETZEL_INK_COLOUR
 
 local function OnRemoveHit(inst)
 	if inst.target ~= nil and inst.target:IsValid() then
@@ -99,7 +99,7 @@ local function fx()
 
 	inst.SetTarget = function(inst, target, colour)
 		inst.entity:AddFollower():FollowSymbol(target.GUID, "swap_object", 0, 0, 0)
-		SpawnPrefab("wayne_feather_fx"):SetTarget(inst, colour)
+		SpawnPrefab("wetzel_feather_fx"):SetTarget(inst, colour)
 
 		inst.SoundEmitter:PlaySound("dontstarve/sanity/bishop/appear")
 	end
@@ -110,5 +110,5 @@ local function fx()
 	return inst
 end
 
-return Prefab("wayne_feather_fx", fn),
+return Prefab("wetzel_feather_fx", fn),
 	   Prefab("feather_buff_fx", fx)

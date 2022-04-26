@@ -1,12 +1,12 @@
-local PENALTY_KEY = "wayne_puddle_penality"
+local PENALTY_KEY = "wetzel_puddle_penality"
 
 local function OnTimer(inst, data)
 	if data and data.name == PENALTY_KEY then
-		inst.components.wayne_power:DecreasePenalty()
+		inst.components.wetzel_power:DecreasePenalty()
 	end
 end
 
-local WaynePower = Class(function(self, inst)
+local WetzelPower = Class(function(self, inst)
     self.inst = inst
 
 	self.penalty_level = 0
@@ -16,7 +16,7 @@ local WaynePower = Class(function(self, inst)
 end)
 
 -- Fox: From loading
-function WaynePower:InitPenality()
+function WetzelPower:InitPenality()
 	local function Init()
 		if self.penalty_level > 0 then
 			for i = 1, self.penalty_level do
@@ -28,24 +28,24 @@ function WaynePower:InitPenality()
 	self.inst:DoTaskInTime(0, Init)
 end
 
-function WaynePower:MadePuddle(puddle)
+function WetzelPower:MadePuddle(puddle)
 	self:IncreasePenalty()
 end
 
-function WaynePower:IncreasePenalty()
+function WetzelPower:IncreasePenalty()
 	-- print("IncreasePenalty", CalledFrom())
 
 	self.penalty_level = self.penalty_level + 1
 
 	local sanity = self.inst.components.sanity 
 	if sanity then
-		sanity:AddSanityPenalty(PENALTY_KEY..self.penalty_level, TUNING.WAYNE.PUDDLE_SANITY)
+		sanity:AddSanityPenalty(PENALTY_KEY..self.penalty_level, TUNING.WETZEL.PUDDLE_SANITY)
 	end
 
 	self:SetupTimer()
 end
 
-function WaynePower:DecreasePenalty()
+function WetzelPower:DecreasePenalty()
 	local sanity = self.inst.components.sanity 
 	if sanity then
 		sanity:RemoveSanityPenalty(PENALTY_KEY..self.penalty_level)
@@ -58,24 +58,24 @@ function WaynePower:DecreasePenalty()
 	end
 end
 
-function WaynePower:SetupTimer()
+function WetzelPower:SetupTimer()
 	if self.timer:TimerExists(PENALTY_KEY) then
-		self.timer:SetTimeLeft(PENALTY_KEY, TUNING.WAYNE.SANITY_PENALTY_DURATION)
+		self.timer:SetTimeLeft(PENALTY_KEY, TUNING.WETZEL.SANITY_PENALTY_DURATION)
 	else
-		self.timer:StartTimer(PENALTY_KEY, TUNING.WAYNE.SANITY_PENALTY_DURATION)
+		self.timer:StartTimer(PENALTY_KEY, TUNING.WETZEL.SANITY_PENALTY_DURATION)
 	end
 end
 
-function WaynePower:OnSave()
+function WetzelPower:OnSave()
 	return {penalty_level = self.penalty_level}
 end
 
-function WaynePower:OnLoad(data)
+function WetzelPower:OnLoad(data)
 	if data and data.penalty_level then
 		self.penalty_level = data.penalty_level
 		self:InitPenality()
 	end
 end
 
-return WaynePower
+return WetzelPower
 

@@ -145,7 +145,7 @@ local function MakeFx(t)
 end
 
 local prefs = {}
-local fx = require("wayne_fx")
+local fx = require("wetzel_fx")
 
 for i, data in pairs(fx) do
 	table.insert(prefs, MakeFx(data))

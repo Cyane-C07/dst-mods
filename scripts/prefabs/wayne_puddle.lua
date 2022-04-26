@@ -1,6 +1,6 @@
 local assets =
 {
-	Asset("ANIM", "anim/wayne_puddle.zip"),
+	Asset("ANIM", "anim/wetzel_puddle.zip"),
 }
 
 local function Perish(inst)
@@ -31,8 +31,8 @@ local function fn()
 	inst.entity:AddSoundEmitter()
 	inst.entity:AddNetwork()
 
-	inst.AnimState:SetBuild("wayne_puddle")
-	inst.AnimState:SetBank("wayne_puddle")
+	inst.AnimState:SetBuild("wetzel_puddle")
+	inst.AnimState:SetBank("wetzel_puddle")
 	inst.AnimState:PlayAnimation("idle", true)
 	inst.AnimState:SetLayer(LAYER_BACKGROUND)
 	inst.AnimState:SetSortOrder(3)
@@ -60,7 +60,7 @@ local function fn()
 
 	inst:ListenForEvent("fill_bottle", Perish)
 
-	inst:DoTaskInTime(TUNING.WAYNE.PUDDLE_DURATION, Perish)
+	inst:DoTaskInTime(TUNING.WETZEL.PUDDLE_DURATION, Perish)
 
 	-- Hide entity and skip 2 frames for network to be initialised
 	inst:Hide()
@@ -72,14 +72,14 @@ end
 local function OnBuilt(inst, builder)
 	local angle = builder.Transform:GetRotation() * DEGREES
 	local range = 0.75
-	SpawnAt("wayne_puddle", builder:GetPosition() + Vector3(math.cos(angle) * range, 0, -math.sin(angle) * range)):SetOwner(builder)
+	SpawnAt("wetzel_puddle", builder:GetPosition() + Vector3(math.cos(angle) * range, 0, -math.sin(angle) * range)):SetOwner(builder)
 
-	if builder.components.wayne_power then
-		builder.components.wayne_power:MadePuddle(inst)
+	if builder.components.wetzel_power then
+		builder.components.wetzel_power:MadePuddle(inst)
 	end
 
 	inst:Remove()
 end
 
-return Prefab("wayne_puddle", fn, assets, prefabs),
-	   Prefab("wayne_puddle_builder", MakeBuilder(OnBuilt))
+return Prefab("wetzel_puddle", fn, assets, prefabs),
+	   Prefab("wetzel_puddle_builder", MakeBuilder(OnBuilt))

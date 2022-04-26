@@ -1,6 +1,6 @@
 local assets =
 {
-	Asset("ANIM", "anim/wayne_paper.zip"),
+	Asset("ANIM", "anim/wetzel_paper.zip"),
 }
 
 local function fn()
@@ -12,8 +12,8 @@ local function fn()
 
 	MakeInventoryPhysics(inst)
 
-	inst.AnimState:SetBank("wayne_paper")
-	inst.AnimState:SetBuild("wayne_paper")
+	inst.AnimState:SetBank("wetzel_paper")
+	inst.AnimState:SetBuild("wetzel_paper")
 	inst.AnimState:PlayAnimation("idle")
 
 	MakeInventoryFloatable(inst, "med", 0.15, 0.65)
@@ -25,14 +25,13 @@ local function fn()
 	end
 
 	inst:AddComponent("inspectable")
-	inst:AddComponent("wayne_paper")
+	inst:AddComponent("wetzel_paper")
 
 	inst:AddComponent("inventoryitem")
-	inst.components.inventoryitem.atlasname = "images/wayne_inv.xml"
 	
 	inst:AddComponent("finiteuses")
-	inst.components.finiteuses:SetMaxUses(TUNING.WAYNE.BRUSH_USES)
-	inst.components.finiteuses:SetUses(TUNING.WAYNE.BRUSH_USES)
+	inst.components.finiteuses:SetMaxUses(TUNING.WETZEL.BRUSH_USES)
+	inst.components.finiteuses:SetUses(TUNING.WETZEL.BRUSH_USES)
 	inst.components.finiteuses:SetOnFinished(inst.Remove)
 
 	inst:AddComponent("fuel")
@@ -45,4 +44,4 @@ local function fn()
 	return inst
 end
 
-return Prefab("wayne_paper", fn, assets)
+return Prefab("wetzel_paper", fn, assets)
