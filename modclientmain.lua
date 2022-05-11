@@ -38,9 +38,6 @@ Assets = {
 
 	Asset( "IMAGE", "images/names_gold_wetzel.tex" ),
     Asset( "ATLAS", "images/names_gold_wetzel.xml" ),
-
-    Asset("SOUNDPACKAGE","sound/wetzel.fev"),
-    Asset("SOUND","sound/wetzel.fsb"),
 }
 
 if WETZEL_MENU then

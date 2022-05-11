@@ -125,7 +125,7 @@ local function common_postinit(inst)
 
 	inst.components.talker.font = TALKINGFONT_WETZEL
 
-	inst.components.talker.fontsize = 16
+	inst.components.talker.fontsize = 38
 
 	inst.MiniMapEntity:SetIcon( "wetzel.tex" )
 end
@@ -155,7 +155,7 @@ local function master_postinit(inst)
 	inst.starting_inventory = start_inv[TheNet:GetServerGameMode()] or start_inv.default
 
 	inst.soundsname = "wetzel"
-	inst.talker_path_override = "wetzel/characters/" --maybe "wetzel/"
+	inst.talker_path_override = "wetzel/" --maybe "wetzel/"
 
 	-- Stats
 	inst.components.health:SetMaxHealth(TUNING.WETZEL_HEALTH)
