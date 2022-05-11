@@ -38,7 +38,7 @@ return
 		Asset("ATLAS", "bigportraits/wetzel.xml"),
 		-- Asset("IMAGE", "bigportraits/wetzel_none.tex"),
 		-- Asset("ATLAS", "bigportraits/wetzel_none.xml"),
-		Asset("ATLAS", "bigportraits/wetzel.xml"),
+		-- Asset("ATLAS", "bigportraits/wetzel.xml"),
 		-- Asset("IMAGE", "bigportraits/wetzel_shadow.tex"),
 		-- Asset("ATLAS", "bigportraits/wetzel_shadow.xml"),
 

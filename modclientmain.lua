@@ -18,8 +18,8 @@ Assets = {
     Asset( "IMAGE", "images/selectscreen_portraits/wetzel_silho.tex" ),
     Asset( "ATLAS", "images/selectscreen_portraits/wetzel_silho.xml" ),
 
-    Asset( "IMAGE", "bigportraits/wetzel.tex" ),
-    Asset( "ATLAS", "bigportraits/wetzel.xml" ),
+    -- Asset( "IMAGE", "bigportraits/wetzel.tex" ),
+    -- Asset( "ATLAS", "bigportraits/wetzel.xml" ),
 
 	Asset( "IMAGE", "images/map_icons/wetzel.tex" ),
 	Asset( "ATLAS", "images/map_icons/wetzel.xml" ),

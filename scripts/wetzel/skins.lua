@@ -11,20 +11,20 @@ require("skinsutils")
 -- 	"wetzel_shadow",
 -- }
 
-PREFAB_SKINS["wetzel"] = {
-	"wetzel_none", 
-	-- "wetzel_shadow",
-}
+-- PREFAB_SKINS["wetzel"] = {
+-- 	"wetzel_none", 
+-- 	-- "wetzel_shadow",
+-- }
 
-PREFAB_SKINS_IDS = {}
-for prefab, skins in pairs(PREFAB_SKINS) do
-    PREFAB_SKINS_IDS[prefab] = {}
-    for k, v in pairs(skins) do
-		PREFAB_SKINS_IDS[prefab][v] = k
-    end
-end
+-- PREFAB_SKINS_IDS = {}
+-- for prefab, skins in pairs(PREFAB_SKINS) do
+--     PREFAB_SKINS_IDS[prefab] = {}
+--     for k, v in pairs(skins) do
+-- 		PREFAB_SKINS_IDS[prefab][v] = k
+--     end
+-- end
 
-AddSkinnableCharacter("wetzel")
+-- AddSkinnableCharacter("wetzel")
 
 --------------------------------------------------------------------------------------------
 
