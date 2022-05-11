@@ -19,9 +19,9 @@ function WetzelFeather:SetColour(colour)
 	self.colour = colour
 end
 
-function WetzelFeather:GetColour()
-	return WETZEL_FEATHERS_COLOURS[self.colour]
-end
+-- function WetzelFeather:GetColour()
+-- 	return WETZEL_FEATHERS_COLOURS[self.colour]
+-- end
 
 function WetzelFeather:Useable(doer)
 	return GetWetzelBottle(doer, self.cost) ~= nil

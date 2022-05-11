@@ -46,13 +46,13 @@ end)
 
 --------------------------------------------------------------------------------------------
 
-for name, _ in pairs(WETZEL_FEATHERS) do
-	name = name:lower()
-	-- print("***********MadeRecipeSkinnable", name)
-	-- MadeRecipeSkinnable("wetzel_feather_"..name, {
-	-- 	feather_formal = {
-	-- 		atlas = "images/inventoryimages/wetzel_inv.xml",
-	-- 		image = "wetzel_feather_"..name.."_royal.tex",
-	-- 	},
-	-- })	
-end
+-- for name, _ in pairs(WETZEL_FEATHERS) do
+-- 	name = name:lower()
+-- 	print("***********MadeRecipeSkinnable", name)
+-- 	MadeRecipeSkinnable("wetzel_feather_"..name, {
+-- 		feather_formal = {
+-- 			atlas = "images/inventoryimages/wetzel_inv.xml",
+-- 			image = "wetzel_feather_"..name.."_royal.tex",
+-- 		},
+-- 	})	
+-- end

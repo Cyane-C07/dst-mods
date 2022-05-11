@@ -23,9 +23,9 @@ end
 
 require("wetzel/tuning")
 require("wetzel/strings")
-modimport("scripts/wetzel/util.lua")
-modimport("scripts/wetzel/actions.lua")
-modimport("scripts/wetzel/recipes.lua")
+-- modimport("scripts/wetzel/util.lua")
+-- modimport("scripts/wetzel/actions.lua")
+-- modimport("scripts/wetzel/recipes.lua")
 
 -----------------------------------------------
 ----------------------------------------GENERAL
@@ -88,25 +88,25 @@ do
 	end
 end
 
-AddClientModRPCHandler("WETZEL", "TELEPORT", function(value)
-	local inst = ThePlayer
+-- AddClientModRPCHandler("WETZEL", "TELEPORT", function(value)
+-- 	local inst = ThePlayer
 
-	if inst and inst.OnWetzelTeleport then
-		inst:OnWetzelTeleport(value)
-	end
-end)
+-- 	if inst and inst.OnWetzelTeleport then
+-- 		inst:OnWetzelTeleport(value)
+-- 	end
+-- end)
 
-AddClientModRPCHandler("WETZEL", "INK", function(persists --[[, colour]])
-	local inst = ThePlayer
+-- AddClientModRPCHandler("WETZEL", "INK", function(persists --[[, colour]])
+-- 	local inst = ThePlayer
 
-	if inst then
-		inst:PushEvent("inkover", {persists = nil})
-		-- , {
-		-- 	colour = colour,
-		-- 	persists = persists,
-		-- })
-	end
-end)
+-- 	if inst then
+-- 		inst:PushEvent("inkover", {persists = nil})
+-- 		-- , {
+-- 		-- 	colour = colour,
+-- 		-- 	persists = persists,
+-- 		-- })
+-- 	end
+-- end)
 
 -- Fox: Shader work goes here
 -- env.AddModShadersInit(function()
@@ -199,11 +199,11 @@ AddClassPostConstruct("components/builder_replica", function(self)
 	-- Fox: Since we're hacking in craft tabs, we use this to determine if we have enough resources or not
 	local _HasCharacterIngredient = self.HasCharacterIngredient
 	function self:HasCharacterIngredient(ing, ...)
-		if IsFiniteusesIngredient(ing.type) then
-			local item = GetFirstAvalibleFiniteusesIng(self.inst, ing.type, ing.amount)
-			local uses = item and GetFiniteusesPercent(item) or 0
-			return uses >= ing.amount, uses
-		end
+		-- if IsFiniteusesIngredient(ing.type) then
+		-- 	local item = GetFirstAvalibleFiniteusesIng(self.inst, ing.type, ing.amount)
+		-- 	local uses = item and GetFiniteusesPercent(item) or 0
+		-- 	return uses >= ing.amount, uses
+		-- end
 		return _HasCharacterIngredient(self, ing, ...)
 	end
 
@@ -309,9 +309,9 @@ AddClassPostConstruct("widgets/recipepopup", function(self)
 end)
 
 AddClassPostConstruct("widgets/ingredientui", function(self, atlas, image, quantity, on_hand, has_enough, desc, owner, name)
-	if quantity and IsFiniteusesIngredient(name) then
-		self.quant:SetString(string.format("-%2.0f%%", quantity * 100))
-	end
+	-- if quantity and IsFiniteusesIngredient(name) then
+	-- 	self.quant:SetString(string.format("-%2.0f%%", quantity * 100))
+	-- end
 end)
 
 AddClassPostConstruct("widgets/hoverer", function(self, item)
@@ -450,9 +450,9 @@ local CLIENT_STATES = {
 	},
 }
 
-for _, state in ipairs(require("wetzel/sg_client")) do
-	AddStategraphState("wilson_client", state)
-end
+-- for _, state in ipairs(require("wetzel/sg_client")) do
+-- 	AddStategraphState("wilson_client", state)
+-- end
 
 do
 	local function SgPostinit(self)
@@ -549,9 +549,9 @@ end)
 ----------------------------------------STATEGTAPH
 --------------------------------------------------
 
-for _, state in ipairs(require("wetzel/sg_server")) do
-	AddStategraphState("wilson", state)
-end
+-- for _, state in ipairs(require("wetzel/sg_server")) do
+-- 	AddStategraphState("wilson", state)
+-- end
 
 --------------------------------------------
 ----------------------------------------MISC
@@ -573,41 +573,41 @@ do
 	end
 end
 
-do
-	-- local getcharacterstring = UpvalueHacker.GetUpvalue(GetActionString, "getcharacterstring")
+-- do
+-- 	-- local getcharacterstring = UpvalueHacker.GetUpvalue(GetActionString, "getcharacterstring")
 
-	local function RandomWetzelString()
-		local str_end = {"...", ".", "?", "!"}
-		local words = {}
-		local letters = math.random(1, 3)
-		for letter = 1, letters do
-			local count = math.random(3, 5)
-			for i = 1, count do
-				local word = GetRandomItem(STRINGS.WETZEL_WORDS)
-				if i == 1 then
-					local let = word:sub(1, 1)
-					word = string.upper(let) .. word:sub(2)
+-- 	local function RandomWetzelString()
+-- 		local str_end = {"...", ".", "?", "!"}
+-- 		local words = {}
+-- 		local letters = math.random(1, 3)
+-- 		for letter = 1, letters do
+-- 			local count = math.random(3, 5)
+-- 			for i = 1, count do
+-- 				local word = GetRandomItem(STRINGS.WETZEL_WORDS)
+-- 				if i == 1 then
+-- 					local let = word:sub(1, 1)
+-- 					word = string.upper(let) .. word:sub(2)
 
-					if letter ~= 1 then
-					word = " " .. word
-					end
-				end
+-- 					if letter ~= 1 then
+-- 					word = " " .. word
+-- 					end
+-- 				end
 
-				if i ~= count then
-					word = word .. " "
-				end
+-- 				if i ~= count then
+-- 					word = word .. " "
+-- 				end
 
-				table.insert(words, word)
-			end
-			table.insert(words, GetRandomItem(str_end))
-		end
-		return table.concat(words, "")
-	end
+-- 				table.insert(words, word)
+-- 			end
+-- 			table.insert(words, GetRandomItem(str_end))
+-- 		end
+-- 		return table.concat(words, "")
+-- 	end
 
-	local _GetSpecialCharacterString = GetSpecialCharacterString
-	GetSpecialCharacterString = function(character, ...)
-		return string.lower(character) == "wetzel" and
-		RandomWetzelString() or
-		_GetSpecialCharacterString(character, ...)
-	end
-end
+-- 	local _GetSpecialCharacterString = GetSpecialCharacterString
+-- 	GetSpecialCharacterString = function(character, ...)
+-- 		return string.lower(character) == "wetzel" and
+-- 		RandomWetzelString() or
+-- 		_GetSpecialCharacterString(character, ...)
+-- 	end
+-- end
