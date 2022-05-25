@@ -125,7 +125,7 @@ local function common_postinit(inst)
 
 	inst.components.talker.font = TALKINGFONT_WETZEL
 
-	inst.components.talker.fontsize = 38
+	-- inst.components.talker.fontsize = 38
 
 	inst.MiniMapEntity:SetIcon( "wetzel.tex" )
 end

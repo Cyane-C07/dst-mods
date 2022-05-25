@@ -1,6 +1,3 @@
--- Made by CunningFox
--- Thanks to Ysovuka/Kzisor for the base code
-
 local env = env
 GLOBAL.setfenv(1, GLOBAL)
 
@@ -79,14 +76,12 @@ local function RecipePopupPostConstruct(self)
         })
 		
         if self.skins_list and TheNet:IsOnlineMode() then 
-			-- local recipe_timestamp = Profile:GetRecipeTimestamp(self.recipe.name)
             for i, data in ipairs(self.skins_list) do
                 local item = data.item 
 				
                 local rarity = GetRarityForItem(item) or "Common"
                 local colour = SKIN_RARITY_COLORS[rarity]
                 local text_name = STRINGS.SKIN_NAMES[item] or STRINGS.SKIN_NAMES.missing
-                -- local new_indicator = not data.timestamp or (data.timestamp > recipe_timestamp)
 
 				local image_name = item
 				local image_data = self.recipe.skin_img_data and self.recipe.skin_img_data[item]
@@ -110,7 +105,6 @@ local function RecipePopupPostConstruct(self)
                     text = text_name, 
                     data = nil,
                     colour = colour,
-                    -- new_indicator = new_indicator,
                     image = {atlas, image_name, "poop.tex"},
                 })
             end
@@ -146,8 +140,7 @@ local function BuilderSkinPostInit(self)
     end
 	
     local _DoBuild = self.DoBuild
-	-- Fox: We don't use Klei's skinned prefabs system, we just spawn a skin prefab
-	-- Change the product of the prefab to a skin, call Build fn, revert changes.
+	-- TODO: use Klei's skinned prefabs system
     self.DoBuild = function(self, recname, pt, rotation, skin, ...)
 		local rec = GetValidRecipe(recname)
         if rec and not IsOfficial(rec.product) then
