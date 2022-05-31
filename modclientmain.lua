@@ -47,7 +47,6 @@ _G.setfenv(1, _G)
 
 require("wetzel/strings")
 require("wetzel/tuning")
-env.modimport("scripts/wetzel/skins.lua")
 
 local skin_modes = {
     {

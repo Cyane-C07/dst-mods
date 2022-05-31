@@ -6,7 +6,7 @@ description = "Objectively the best character in Don't Starve Together."
 author = "petrifyyoursoul & Cyane"
 
 -- This is the URL name of the mod's thread on the forum; the part after the ? and before the first & in the url
-forumthread = "/files/file/950-extended-sample-character/"
+-- forumthread = "/files/file/950-extended-sample-character/"
 api_version = 10
 
 dst_compatible = true
