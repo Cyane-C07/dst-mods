@@ -358,20 +358,13 @@ return {
             },
         },
 
-	ACTIONFAIL_GENERIC = "no thankyou",
-	ANNOUNCE_BOAT_LEAK = "i think the water is meant to be outside the boat.",
-	ANNOUNCE_BOAT_SINK = "a captain goes down with the ship, but im not the captain!",
-	ANNOUNCE_DIG_DISEASE_WARNING = "all better",
-	ANNOUNCE_PICK_DISEASE_WARNING = "that doesnt smell very nice",
-	ANNOUNCE_ADVENTUREFAIL = "o well maybe next time",
-    ANNOUNCE_MOUNT_LOWHEALTH = "this mortal may be nearing its end",
 	ACTIONFAIL_GENERIC = "i cant do that",
-        ANNOUNCE_BOAT_LEAK = "i dont think boats are meant to have holes",
-        ANNOUNCE_BOAT_SINK = "sweet neptune!",
-        ANNOUNCE_DIG_DISEASE_WARNING = "better without it", --removed
-        ANNOUNCE_PICK_DISEASE_WARNING = "i think its sick", --removed
-        ANNOUNCE_ADVENTUREFAIL = "that... didnt go so well",
-        ANNOUNCE_MOUNT_LOWHEALTH = "poor horsey isnt feeling so good",
+	ANNOUNCE_BOAT_LEAK = "i dont think boats are meant to have holes",
+	ANNOUNCE_BOAT_SINK = "sweet neptune!",
+	ANNOUNCE_DIG_DISEASE_WARNING = "better without it", --removed
+	ANNOUNCE_PICK_DISEASE_WARNING = "i think its sick", --removed
+	ANNOUNCE_ADVENTUREFAIL = "that... didnt go so well",
+	ANNOUNCE_MOUNT_LOWHEALTH = "poor horsey isnt feeling so good",
 
     --waxwell and wickerbottom specific strings
     ANNOUNCE_TOOMANYBIRDS = "only_used_by_waxwell_and_wicker",

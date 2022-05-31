@@ -1,30 +1,28 @@
-local MakePlayerCharacter = require "prefabs/player_common"
+local MakePlayerCharacter = require("prefabs/player_common")
 
-local assets = {
-    Asset("SCRIPT", "scripts/prefabs/player_common.lua"),
+local assets =
+{
+    Asset("SCRIPT", "scripts/prefabs/player_common.lua"), --needed
+	Asset("SOUND", "sound/wetzel.fsb"),
 }
 
--- Your character's stats
-TUNING.WETZEL_HEALTH = 175
-TUNING.WETZEL_HUNGER = 150
-TUNING.WETZEL_SANITY = 200
-
--- Custom starting inventory
-TUNING.GAMEMODE_STARTING_ITEMS.DEFAULT.WETZEL = {
-	"nightmarefuel",
-	"nightmarefuel",
-	"nightmarefuel",
-	"nightmarefuel",
-	"nightmarefuel",
-}
+local prefabs = {}
 
 local start_inv = {}
 for k, v in pairs(TUNING.GAMEMODE_STARTING_ITEMS) do
-    start_inv[string.lower(k)] = v.WETZEL
+	start_inv[string.lower(k)] = v.WETZEL
 end
-local prefabs = FlattenTree(start_inv, true)
 
--- When the character is revived from human
+prefabs = FlattenTree({ prefabs, start_inv }, true)
+
+local function common_postinit(inst)	
+	inst:AddTag("wetzel")
+
+	inst.components.talker.font = TALKINGFONT_WETZEL
+
+	inst.MiniMapEntity:SetIcon( "wetzel.tex" )
+end
+
 local function onbecamehuman(inst)
 	-- Set speed when not a ghost (optional)
 	inst.components.locomotor:SetExternalSpeedMultiplier(inst, "wetzel_speed_mod", 1)
@@ -35,7 +33,6 @@ local function onbecameghost(inst)
    inst.components.locomotor:RemoveExternalSpeedMultiplier(inst, "wetzel_speed_mod")
 end
 
--- When loading or spawning the character
 local function onload(inst)
     inst:ListenForEvent("ms_respawnedfromghost", onbecamehuman)
     inst:ListenForEvent("ms_becameghost", onbecameghost)
@@ -47,24 +44,11 @@ local function onload(inst)
     end
 end
 
+local function master_postinit(inst)
+	inst.starting_inventory = start_inv[TheNet:GetServerGameMode()] or start_inv.default
 
--- This initializes for both the server and client. Tags can be added here.
-local common_postinit = function(inst)
-	-- Minimap icon
-	inst.MiniMapEntity:SetIcon( "wetzel.tex" )
-end
-
--- This initializes for the server only. Components are added here.
-local master_postinit = function(inst)
-	-- Set starting inventory
-    inst.starting_inventory = start_inv[TheNet:GetServerGameMode()] or start_inv.default
-
-	-- choose which sounds this character will play
 	inst.soundsname = "wetzel"
 	inst.talker_path_override = "wetzel/"
-
-	-- Uncomment if "wathgrithr"(Wigfrid) or "webber" voice is used
-    --inst.talker_path_override = "dontstarve_DLC001/characters/"
 
 	-- Stats
 	inst.components.health:SetMaxHealth(TUNING.WETZEL_HEALTH)
@@ -79,8 +63,8 @@ local master_postinit = function(inst)
 	inst.components.hunger.hungerrate = 1 * TUNING.WILSON_HUNGER_RATE
 
 	inst.OnLoad = onload
-  inst.OnNewSpawn = onload
+  	inst.OnNewSpawn = onload
 
 end
 
-return MakePlayerCharacter("wetzel", prefabs, assets, common_postinit, master_postinit, prefabs)
+return MakePlayerCharacter("wetzel", prefabs, assets, common_postinit, master_postinit)

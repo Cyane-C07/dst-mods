@@ -1,16 +1,14 @@
--- This information tells other players more about the mod
 name = "Wetzel"
+
+version = "1.0.0" 
+
 description = "Objectively the best character in Don't Starve Together."
 author = "petrifyyoursoul & Cyane"
-version = "1.2.6" -- This is the version of the template. Change it to your own number.
 
 -- This is the URL name of the mod's thread on the forum; the part after the ? and before the first & in the url
-forumthread = "/files/file/950-extended-sample-character/"
-
--- This lets other players know if your mod is out of date, update it to match the current version in the game
+-- forumthread = "/files/file/950-extended-sample-character/"
 api_version = 10
 
--- Compatible with Don't Starve Together
 dst_compatible = true
 
 -- Not compatible with Don't Starve
@@ -21,12 +19,20 @@ shipwrecked_compatible = false
 -- Character mods are required by all clients
 all_clients_require_mod = true
 
-icon_atlas = "modicon.xml"
+priority = -1000.025802
+
+icon_atlas = "images/modicon.xml"
 icon = "modicon.tex"
 
--- The mod's tags displayed on the server list
+local workshop_mod = folder_name and folder_name:find("workshop-") ~= nil
+
+if not workshop_mod then
+	description = description.."\nDeveloper version"
+end
+
 server_filter_tags = {
-"character",
+	"character",
+	"wetzel",
 }
 
---configuration_options = {}
+configuration_options = {}
